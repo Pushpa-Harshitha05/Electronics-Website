@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+<html>
+<head><title>Electronic shopping site</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+   <style>
+      header {
+         background: linear-gradient(-90deg, skyblue, white, skyblue);
+         padding: 5px;
+         color: darkblue;
+         font-size: larger;
+         width: 100%;
+         height: 120px;
+      }
+
+      * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+      }
+      body {
+         background: url("https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?cs=srgb&dl=pexels-pixabay-356056.jpg&fm=jpg");
+         background-size: cover;
+         background-attachment: fixed;
+      }
+
+
+      h1 {
+         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+
+      .column {
+         background: transparent;
+         float: left;
+         width: 50%;
+         padding: 5px;
+
+      }
+
+      .column img {
+         cursor: pointer;
+         transition: all 0.5s ease-in-out;
+      }
+
+      .column img:hover {
+         transform: scale(1.07);
+      }
+
+      .column #pic {
+         width: 100%;
+         height: 350px;
+         border-radius: 10px;
+         border: 4px solid rgb(211, 208, 208);
+      }
+
+      .second {
+         background: transparent;
+         float: right;
+         width: 25%;
+         padding: 5px;
+      }
+
+      .second img {
+         transition: all 0.5s ease-in-out;
+         cursor: pointer;
+      }
+
+      .second img:hover {
+         transform: scale(1.05);
+      }
+
+      .second #pic {
+         width: 100%;
+         height: 350px;
+         border-radius: 10px;
+         border: 4px solid rgb(211, 208, 208);
+      }
+
+      nav {
+         background-color: rgb(92, 167, 213);
+         padding: 20px;
+         width: 300%;
+      }
+
+      nav a {
+         color: white;
+         text-decoration: none;
+         padding: 20px;
+         font-size: larger;
+         font-family: 'Josefin Sans', sans-serif;
+      }
+
+      nav a:hover {
+         background-color: white;
+         color: darkblue;
+      }
+
+      mark {
+         background-color: white;
+         color: black;
+         padding: 20px;
+      }
+
+      img {
+         display: block;
+         width: 100px;
+         margin-left: auto;
+         margin-right: auto;
+      }
+
+      input {
+         width: 20%;
+         height: 40px;
+         font-size: medium;
+      }
+
+      .row {
+         float: left;
+         width: 33.33%;
+         height: 300px;
+      }
+
+      .row #pict {
+         width: 100%;
+         height: 300px;
+         padding: 10px;
+         border-radius: 10px;
+      }
+
+      a:hover {
+         background-color: white;
+         color: black;
+      }
+
+      h2 {
+         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+
+      .total {
+         width: 99.5%;
+         height: fit-content;
+         background: linear-gradient(-90deg, rgb(155, 207, 227), white, rgb(155, 207, 227));
+         border-radius: 15px;
+         margin-left: 0.25%;
+         border: 4.5px solid rgb(21, 92, 120);
+         box-shadow: 0 0 100px rgb(127, 165, 179);
+      }
+
+      #btn{
+         width:50px;
+         height: 40px;
+      }
+      header,
+      .start {
+         position: fixed;
+         z-index: 5;
+      }
+   </style>
+   <script>
+        function search(){
+           let a=document.getElementById('select').value.toLowerCase();
+           
+              window.location.href = a+'.html';
+        }
+     
+      </script>
+</head>
+
+<body>
+   <header><BR>
+      <h1><u>GURU MOBILE ACCESSORIES</u> &amp; <u> ELECTRONICS</u></h1>
+   </header><br><br><br><br><br><br>
+   <div class="start">
+      <nav>
+         <a href="sign.html" target="_self">SIGN UP</a>
+         <a href="#" target="_parent"><mark>HOME</mark></a>
+         <a href="appl.html" target="_self">APPLIANCES</a>
+         <a href="about.html" target="_self">ABOUT</a>
+      </nav>
+   </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <div class="total">
+      <h2>
+         <br><br>
+         <p align="center">Welcome to GURU MOBILE ACCESSORIES &amp; ELECTRONICS</p>
+      </h2>
+      <h2>
+         <br>
+         <p align="center"><label for="input"><b>SEARCH FOR ITEMS HERE : </b></label></p>
+      </h2>
+      <img src="online-shoping.png"><br>
+      <p align="center"><input type="search" id="select" list="items" placeholder="search for products">
+         <datalist id="items">
+            <option>mouse</option>
+            <option>keyboards</option>
+            <option>screencards</option>
+            <option>speakers</option>
+            <option>pendrives</option>
+          </datalist>
+          <input type="button" id="btn" value="search" onclick="search()"> </p>
+      <br><br>
+      <marquee behaviour="alternate" scrollamount="20" onmouseover="this.stop()" onmouseout="this.start()">
+         <div class="row">
+            <img id="pict"
+               src="data:image/jpeg;base64,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">
+         </div>
+         <div class="row">
+            <img id="pict" src="photo1.jpeg">
+         </div>
+         <div class="row">
+            <img id="pict"
+               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDuI2Dd9fSeAZ3zw8quH09W1BE3vcyBce8Nw&usqp=CAU">
+         </div>
+      </marquee>
+      <br><br>
+      <div class="column">
+         <img id="pic" src="good.jpg">
+         <p>
+         <h1>LOWEST&nbsp;AND&nbsp;AFFORDABLE&nbsp;PRICES</h1>
+         </p><br><br><br>
+      </div>
+      <div class="column">
+         <img id="pic" src="good2.jpg">
+         <p>
+         <h1>BEST&nbsp;OF&nbsp;ELECTRONIC&nbsp;GOODS </h1>
+         </p><br><br><br>
+      </div>
+      <br><br>
+      <p>
+      <h1><u>ELECTRONIC&nbsp;&nbsp;APPLIANCES&nbsp;&nbsp;FROM&nbsp;&nbsp;VARIOUS&nbsp;&nbsp;BRANDS</u></h1>
+      </p><br>
+      <div class="second">
+         <img id="pic" src="dell.jpeg">
+         <br>
+      </div>
+      <div class="second">
+         <img id="pic" src="pen4.jpg">
+         <br>
+      </div>
+      <div class="second">
+         <img id="pic" src="key2.png" style="background-color: white;">
+         <br>
+      </div>
+      <div class="second">
+         <img id="pic" src="scr1.jpeg">
+         <br>
+      </div>
+      <div class="column">
+         <br><br><br><br><img id="pic"
+            src="https://media.istockphoto.com/id/827502902/photo/mobile-smartphone-in-electronic-store.jpg?s=612x612&w=0&k=20&c=G3jkr0uLHBR-c8Bi0405JvhL5F-sB7Ln-bYTRbqt3hw="
+            style="height:343px">
+      </div>
+      <div class="column">
+         <br><br><br><br>
+         <p
+            style="font-size: 385%; color: black; font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            ALL KIND OF MOBILE<br>
+            ACCESSORIES AND ELECTRONIC<br> APPLIANCES AVAILABLE</p><br><br><br>
+      </div>
+      <b>
+         <p align="center" style="font-size: 30px;"><a href="sign.html">SIGN IN</a><br>for better experience</p>
+      </b>
+   </div><br>
+</body>
+
+</html>
