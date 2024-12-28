@@ -1,2 +1,2 @@
 # electronics_website
-The full stack electronics website but it is not responsive as it is my first project based on web
+The full stack electronics website which contains electronic gadgets and accessories required for mobiles.
