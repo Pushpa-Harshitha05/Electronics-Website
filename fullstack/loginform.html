@@ -1,8 +1,10 @@
 <!DOCTYPE HTML>
 <html>
-<head><title>LOGIN</title>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <title>LOGIN</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
@@ -71,7 +73,8 @@
             margin-top: 20px;
         }
 
-        .container #emailname,#passwor {
+        .container #emailname,
+        #passwor {
             width: 90%;
             height: 30px;
             font-size: medium;
@@ -136,20 +139,22 @@
         h4 a:hover {
             color: rgb(239, 107, 239);
         }
-        header,.start {
-         position: fixed;
-         z-index: 5;
-      }
+
+        header,
+        .start {
+            position: fixed;
+            z-index: 5;
+        }
     </style>
     <script>
-        function passing(){
-    let passwording=document.getElementById("passwor").value;
-    let email=document.getElementById("emailname").value;
-    if(email === "" || passwording === ""){
-        alert("PLEASE FILL IN THE DETAILS");
-    }
-}
-        </script>
+        function passing() {
+            let passwording = document.getElementById("passwor").value;
+            let email = document.getElementById("emailname").value;
+            if (email === "" || passwording === "") {
+                alert("PLEASE FILL IN THE DETAILS");
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -157,12 +162,13 @@
         <h1><u>GURU MOBILE ACCESSORIES</u> &amp; <u> ELECTRONICS</u></h1>
     </header><br><br><br><br><br><br>
     <div class="start">
-    <nav>
-        <a href="First Website.html" target="_parent">HOME</a>
-        <a href="appl.html" target="_self">APPLIANCES</a>
-        <a href="about.html" target="_self">ABOUT</a>
-        <a href="sign.html" target="_self"><mark>SIGN UP</mark></a>
-    </nav></div><br><br><br><br><br><br><br>
+        <nav>
+            <a href="Homepage.html" target="_parent">HOME</a>
+            <a href="appl.html" target="_self">APPLIANCES</a>
+            <a href="about.html" target="_self">ABOUT</a>
+            <a href="sign.html" target="_self"><mark>SIGN UP</mark></a>
+        </nav>
+    </div><br><br><br><br><br><br><br>
     <form action="loginform.php" method="post">
         <div class="container">
             <br>
@@ -170,16 +176,17 @@
                 <p align="center"><u>LOGIN</u></p>
             </h1>
             <label for="emailname">&nbsp;<br><br>E-MAIL : </label><br><br>
-            <input type="email" id="emailname" name="email" placeholder="  enter your email" onmouseover="this.placeholder = ' '" ;
-                onmouseout="this.placeholder = '  enter your email'" required><br><img
-                src="https://img.icons8.com/?size=512&id=499&format=png" height="20px" width="20px"
+            <input type="email" id="emailname" name="email" placeholder="  enter your email"
+                onmouseover="this.placeholder = ' '" ; onmouseout="this.placeholder = '  enter your email'"
+                required><br><img src="https://img.icons8.com/?size=512&id=499&format=png" height="20px" width="20px"
                 style="right: 41.5%;">
             <small id="firstone">&nbsp;We will never share your email with anyone</small><br><br><br>
             <label for="passwor">&nbsp;PASSWORD : </label><br><br>
-            <input id="passwor" type="password" name="password" placeholder="  enter your password" onmouseover="this.placeholder = ' '" ;
-                onmouseout="this.placeholder = '  enter your password'" required><img id="pic"
-                src="https://img.icons8.com/?size=512&id=59825&format=png" height="20px" width="20px"><br><br><br>
-                
+            <input id="passwor" type="password" name="password" placeholder="  enter your password"
+                onmouseover="this.placeholder = ' '" ; onmouseout="this.placeholder = '  enter your password'"
+                required><img id="pic" src="https://img.icons8.com/?size=512&id=59825&format=png" height="20px"
+                width="20px"><br><br><br>
+
             <input type="checkbox" class="two"> I Agree to Terms and Conditions<br><br><br>
             <input type="submit" class="one" value="Submit" onclick="passing()"><br><br><br>
             <h4>

@@ -1,30 +1,29 @@
 <?php
 $insert = false;
-if(isset($_POST['email']) && isset($_POST['password'])){
+if (isset($_POST['email']) && isset($_POST['password'])) {
     $server = "localhost";
     $username = "root";
     $password = "";
 
     $db_name = "signup";
 
-    $con = mysqli_connect($server, $username,$password,$db_name );
+    $con = mysqli_connect($server, $username, $password, $db_name);
 
-    if(!$con){
-        die("connection failed due to".mysqli_connect_error());
+    if (!$con) {
+        die("connection failed due to" . mysqli_connect_error());
     }
-    
-    $email  = $_POST['email'];
-    $pass1  = $_POST['password'];
+
+    $email = $_POST['email'];
+    $pass1 = $_POST['password'];
 
     $checkuser = "SELECT * from `details` where email = '$email' AND Password = '$pass1'";
-    
-    $result = mysqli_query($con,$checkuser);
+
+    $result = mysqli_query($con, $checkuser);
     $count = mysqli_num_rows($result);
-    if($count == 1){
+    if ($count == 1) {
         echo "<script>alert('SUCCESSFULLY LOGGED IN !!');</script>";
-        echo "<script>window.location.href='First Website.html'</script>";
-    }
-    else{
+        echo "<script>window.location.href='Homepage.html'</script>";
+    } else {
         echo "<script>alert('INCORRECT EMAIL OR PASSWORD');</script>";
     }
 }
@@ -33,9 +32,11 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 
 <!DOCTYPE HTML>
 <html>
-<head><title>LOGIN</title>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <title>LOGIN</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         header {
             background: linear-gradient(-90deg, skyblue, white, skyblue);
@@ -101,7 +102,8 @@ if(isset($_POST['email']) && isset($_POST['password'])){
             margin-top: 20px;
         }
 
-        .container #emailname,#passwor {
+        .container #emailname,
+        #passwor {
             width: 90%;
             height: 30px;
             font-size: medium;
@@ -166,20 +168,22 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         h4 a:hover {
             color: rgb(239, 107, 239);
         }
-        header,.start {
-         position: fixed;
-         z-index: 5;
-      } 
+
+        header,
+        .start {
+            position: fixed;
+            z-index: 5;
+        }
     </style>
     <script>
-        function passing(){
-    let passwording=document.getElementById("passwor").value;
-    let email=document.getElementById("emailname").value;
-    if(email === "" || passwording === ""){
-        alert("PLEASE FILL IN THE DETAILS");
-    }
-}
-        </script>
+        function passing() {
+            let passwording = document.getElementById("passwor").value;
+            let email = document.getElementById("emailname").value;
+            if (email === "" || passwording === "") {
+                alert("PLEASE FILL IN THE DETAILS");
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -187,12 +191,13 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         <h1><u>GURU MOBILE ACCESSORIES</u> &amp; <u> ELECTRONICS</u></h1>
     </header><br><br><br><br><br><br>
     <div class="start">
-    <nav>
-        <a href="First Website.html" target="_parent">HOME</a>
-        <a href="appl.html" target="_self">APPLIANCES</a>
-        <a href="about.html" target="_self">ABOUT</a>
-        <a href="sign.html" target="_self"><mark>SIGN UP</mark></a>
-    </nav></div><br><br><br><br><br><br><br>
+        <nav>
+            <a href="Homepage.html" target="_parent">HOME</a>
+            <a href="appl.html" target="_self">APPLIANCES</a>
+            <a href="about.html" target="_self">ABOUT</a>
+            <a href="sign.html" target="_self"><mark>SIGN UP</mark></a>
+        </nav>
+    </div><br><br><br><br><br><br><br>
     <form action="loginform.php" method="post">
         <div class="container">
             <br>
@@ -200,16 +205,17 @@ if(isset($_POST['email']) && isset($_POST['password'])){
                 <p align="center"><u>LOGIN</u></p>
             </h1>
             <label for="emailname">&nbsp;<br><br>E-MAIL : </label><br><br>
-            <input type="email" id="emailname" name="email" placeholder="  enter your email" onmouseover="this.placeholder = ' '" ;
-                onmouseout="this.placeholder = '  enter your email'" required><br><img
-                src="https://img.icons8.com/?size=512&id=499&format=png" height="20px" width="20px"
+            <input type="email" id="emailname" name="email" placeholder="  enter your email"
+                onmouseover="this.placeholder = ' '" ; onmouseout="this.placeholder = '  enter your email'"
+                required><br><img src="https://img.icons8.com/?size=512&id=499&format=png" height="20px" width="20px"
                 style="right: 41.5%;">
             <small id="firstone">&nbsp;We will never share your email with anyone</small><br><br><br>
             <label for="passwor">&nbsp;PASSWORD : </label><br><br>
-            <input id="passwor" type="password" name="password" placeholder="  enter your password" onmouseover="this.placeholder = ' '" ;
-                onmouseout="this.placeholder = '  enter your password'" required><img id="pic"
-                src="https://img.icons8.com/?size=512&id=59825&format=png" height="20px" width="20px"><br><br><br>
-                
+            <input id="passwor" type="password" name="password" placeholder="  enter your password"
+                onmouseover="this.placeholder = ' '" ; onmouseout="this.placeholder = '  enter your password'"
+                required><img id="pic" src="https://img.icons8.com/?size=512&id=59825&format=png" height="20px"
+                width="20px"><br><br><br>
+
             <input type="checkbox" class="two"> I Agree to Terms and Conditions<br><br><br>
             <input type="submit" class="one" value="Submit" onclick="passing()"><br><br><br>
             <h4>

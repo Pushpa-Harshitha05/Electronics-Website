@@ -13,7 +13,7 @@ header {
   padding: 0;
 }
 body {
-  background: url("https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?cs=srgb&dl=pexels-pixabay-356056.jpg&fm=jpg");
+  background: url("images/homepage_imgs/background.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
