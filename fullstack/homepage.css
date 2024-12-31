@@ -1,0 +1,151 @@
+header {
+  background: linear-gradient(-90deg, skyblue, white, skyblue);
+  padding: 5px;
+  color: darkblue;
+  font-size: larger;
+  width: 100%;
+  height: 120px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url("https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?cs=srgb&dl=pexels-pixabay-356056.jpg&fm=jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.column {
+  background: transparent;
+  float: left;
+  width: 50%;
+  padding: 5px;
+
+}
+
+.column img {
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.column img:hover {
+  transform: scale(1.07);
+}
+
+.column #pic {
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+  border: 4px solid rgb(211, 208, 208);
+}
+
+.second {
+  background: transparent;
+  float: right;
+  width: 25%;
+  padding: 5px;
+}
+
+.second img {
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.second img:hover {
+  transform: scale(1.05);
+}
+
+.second #pic {
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+  border: 4px solid rgb(211, 208, 208);
+}
+
+nav {
+  background-color: rgb(92, 167, 213);
+  padding: 20px;
+  width: 300%;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  font-size: larger;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+nav a:hover {
+  background-color: white;
+  color: darkblue;
+}
+
+mark {
+  background-color: white;
+  color: black;
+  padding: 20px;
+}
+
+img {
+  display: block;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  width: 20%;
+  height: 40px;
+  font-size: medium;
+}
+
+.row {
+  float: left;
+  width: 33.33%;
+  height: 300px;
+}
+
+.row #pict {
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+a:hover {
+  background-color: white;
+  color: black;
+}
+
+h2 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.total {
+  width: 99.5%;
+  height: fit-content;
+  background: linear-gradient(-90deg, rgb(155, 207, 227), white, rgb(155, 207, 227));
+  border-radius: 15px;
+  margin-left: 0.25%;
+  border: 4.5px solid rgb(21, 92, 120);
+  box-shadow: 0 0 100px rgb(127, 165, 179);
+}
+
+#btn{
+  width:50px;
+  height: 40px;
+}
+header,
+.start {
+  position: fixed;
+  z-index: 5;
+}
