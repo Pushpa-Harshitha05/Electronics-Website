@@ -12,15 +12,16 @@ body {
 
 header {
   background: linear-gradient(-90deg, skyblue, white, skyblue);
-  padding: 20px 0;
+  padding: 30px 0px;
   text-align: center;
   color: darkblue;
-  font-size: 2rem;
 }
 
-header h1 {
+header p {
   text-decoration: underline;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  font-size: 2.2rem;
 }
 
 nav {
@@ -33,7 +34,7 @@ nav a {
   color: white;
   text-decoration: none;
   padding: 10px 20px;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   margin: 0 10px;
   transition: background-color 0.3s ease;
 }
