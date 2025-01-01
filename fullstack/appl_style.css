@@ -49,6 +49,7 @@ mark {
   background-color: white;
   color: black;
   padding: 10px 5px;
+  border-radius: 5px;
 }
 
 .heading{
@@ -72,7 +73,7 @@ mark {
 .sub {
   border: 2px solid rgb(171, 220, 240);
   background: url("images/appl_imgs/bg.jpg");
-  background-position: center;
+  background-position: 80%;
   background-repeat: no-repeat;
   background-size: cover;
   width: 300px;
