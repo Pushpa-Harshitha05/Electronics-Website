@@ -146,7 +146,7 @@ h2 {
 
 .total {
   width: 99.5%;
-  height: fit-content;
+  height: max-content;
   background: linear-gradient(-90deg, rgb(155, 207, 227), white, rgb(155, 207, 227));
   border-radius: 15px;
   margin-left: 0.25%;
@@ -166,12 +166,47 @@ header,
 }
 
 .column p{
-  font-size: 3.5rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }
 
-.column .columnpic{
+.heading{
+  font-size: 1.5rem;
+}
+
+.last{
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  justify-content: space-evenly;
+  width: 98vw;
+  padding: 20px;
+}
+
+.last p{
+  font-size: 3rem;
+}
+
+.last div:nth-child(2){
+  width: 50%;
+}
+
+.columnpic{
   height:340px;
-  width: 96%;
+  width: 50%;
+}
+
+.signin a{
+  font-size: 27px;
+}
+
+.signin p{
+  font-size: 22px;
+}
+
+.columnpic img{
+  height: 100%;
+  width: 100%;
 }
 
 footer {
@@ -252,7 +287,7 @@ footer .details p{
 
 @media (max-width: 1200px) {
   .column p{
-    font-size: 2.8rem;
+    font-size: 1.2rem;
     text-align: center;
   }
   .column .columnpic{
@@ -261,18 +296,45 @@ footer .details p{
   .footer-content{
     padding: 0px 40px;
   }
+  .last p{
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 992px) {
   .column, .second {
-    width: 100%;
+    width: 55%;
     float: none;
     margin: 10px 0;
   }
-  
+
+  .column{
+    width: 75%;
+    margin: 0px auto;
+  }
+
+  .heading{
+    text-align: center;
+  }
+
+  .links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .second{
+    width: 40%;
+  }
+
   header {
-    height: auto;
     padding: 10px;
+  }
+
+  .last{
+    width: 100%;
   }
 
   nav a {
@@ -287,7 +349,7 @@ footer .details p{
 
 @media (max-width: 768px) {
   .row {
-    width: 100%;
+    width: 33.33%;
     margin: 0;
   }
 
@@ -296,12 +358,65 @@ footer .details p{
     margin-left: 0;
   }
 
+  header{
+    height: 90px;
+  }
+
+  nav{
+    margin-top: -12px;
+  }
+
+  nav a{
+    margin: 0px;
+  }
+
   header p {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+  }
+
+  .searching{
+    font-size: 1.2rem;
+  }
+
+  .shopimg{
+    height: 50px;
+    width: 50px;
   }
 
   input {
     width: 60%;
+  }
+
+  .last p{
+    font-size: 2rem;
+  }
+
+  .signin a{
+    font-size: 1.3rem;
+  }
+  
+  .signin p{
+    font-size: 1rem;
+  }
+
+  .heading{
+    font-size: 1.1rem;
+  }
+
+  .second #pic{
+    height: 220px;
+  }
+
+  .last{
+    gap: 15px;
+  }
+
+  .columnpic{
+    width: 100%;
+  }
+
+  .last p{
+    font-size: 1.7rem;
   }
 
   #btn {
@@ -312,7 +427,8 @@ footer .details p{
   }
 
   .footer-column{
-    width: 100px;
+    width: 100vw;
+    text-align: center;
   }
 
  .footer-bottom {
@@ -333,9 +449,35 @@ footer .details p{
     width: 80%;
   }
 
+  header p{
+    font-size: 1.3rem;
+  }
+
+  #select{
+    width: 60vw;
+  }
+
   #btn {
     width: 70px;
   }
+
+  .column p{
+    font-size: 0.9rem;
+  }
+
+  .heading{
+    font-size: 0.8rem;
+  }
+
+  .column .columnpic{
+    width: 100%;
+    height: 140px;
+  }
+
+  .columnpic img{
+    height: 100%;
+  }
+
   .footer-content{
     padding: 0px;
   }
