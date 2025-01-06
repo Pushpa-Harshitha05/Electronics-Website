@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: rgb(238, 245, 248);
+  color: #333;
+}
+
+header {
+  background: linear-gradient(-90deg, skyblue, white, skyblue);
+  padding: 30px 0px;
+  text-align: center;
+  color: darkblue;
+  font-size: 2.2rem;
+}
+
+#emailname {
+  background-image: url('images/form_imgs/email_img.png');
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 20px 20px;
+  padding-left: 40px;
+}
+
+#passwor{
+  background-image: url('images/form_imgs/password_img.png'); 
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+  background-size: 20px 20px;
+  padding-left: 40px;
+}
+
+header p {
+  text-decoration: underline;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+}
+
+nav {
+  background-color: rgb(92, 167, 213);
+  padding: 8px 0;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 1.25rem;
+  margin: 0px 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: white;
+  color: darkblue;
+  border-radius: 5px;
+}
+
+mark {
+  background-color: white;
+  color: black;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+
+/* Main Content Area */
+.total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  padding-top: 60px; /* Adjust for fixed header and nav */
+}
+
+.container {
+  background:linear-gradient(-90deg, rgb(180, 222, 239), white, rgb(180, 222, 239));
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px 30px;
+  width: 400px;
+  text-align: center;
+}
+
+.container h1 {
+  color: darkblue;
+  margin-bottom: 25px;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container label {
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: -5px;
+  font-size: 0.99rem;
+}
+
+.container input[type="email"],
+.container input[type="password"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  width: 100%;
+}
+
+
+.checkboxdiv{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.container input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.container input[type="checkbox"]:hover{
+  cursor: pointer;
+}
+
+.container span{
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.container input[type="submit"] {
+  background-color: rgb(109, 175, 216);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.container input[type="submit"]:hover {
+  background-color: darkblue;
+}
+
+.container p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.container a {
+  color: darkblue;
+  text-decoration: underline;
+}
+
+.container a:hover {
+  color: mediumblue;
+}
