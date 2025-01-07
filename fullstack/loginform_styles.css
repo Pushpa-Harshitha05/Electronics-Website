@@ -113,21 +113,6 @@ mark {
   width: 100%;
 }
 
-
-.checkboxdiv{
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.container input[type="checkbox"] {
-  margin-right: 5px;
-}
-
-.container input[type="checkbox"]:hover{
-  cursor: pointer;
-}
-
 .container span{
   font-size: 0.7rem;
   text-align: center;
