@@ -38,8 +38,13 @@ header {
   box-shadow: 8px 10px 10px rgb(178, 178, 178);
 }
 
+header a{
+  color: darkblue;
+}
+
 .bubbles {
   position: absolute;
+  right: 10%;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -47,10 +52,9 @@ header {
 
 .bubble {
   position: absolute;
-  bottom: -150px;
   border-radius: 50%;
   background-color: rgba(135, 206, 250, 0.7); /* Light blue color */
-  animation: rise 12s infinite ease-in-out alternate-reverse;
+  animation: rise 10s infinite ease-in-out alternate-reverse;
   opacity: 0.6;
 }
 
@@ -65,42 +69,43 @@ header {
 .bubble:nth-child(2) {
   width: 100px;
   height: 100px;
-  left: 70%;
-  animation-duration: 14s;
+  left: 65%;
+  animation-duration: 8s;
+  animation: rise 8s infinite ease-in-out alternate-reverse;
 }
 
 .bubble:nth-child(3) {
   width: 90px;
   height: 90px;
   left: 100%;
-  animation: diagonal 12s infinite ease-in-out alternate-reverse;
-  animation-duration: 12s;
+  animation: diagonal 10s infinite ease-in-out alternate-reverse;
+  animation-duration: 10s;
 }
 
 @keyframes rise {
   0% {
-      transform: translateY(0);
+      transform: translate(40px,80vh);
   }
   100% {
-      transform: translateY(-108vh);
+      transform: translate(0,100px);
   }
 }
 
 @keyframes upward {
   0% {
-      transform: translate(200px,-108vh);
+      transform: translateY(80vh);
   }
   100% {
-      transform: translateY(0,0);
+      transform: translateY(0);
   }
 }
 
 @keyframes diagonal {
   0% {
-      transform: translate(0, 0);
+      transform: translate(0,100px);
   }
   100% {
-      transform: translate(200px, -108vh);
+      transform: translate(40px,80vh);
   }
 }
 
@@ -218,8 +223,8 @@ header p:nth-child(3){
 }
 
 .container p {
-  margin-top: 10px;
-  font-size: 14px;
+  margin-top: 12.5px;
+  font-size: 15px;
 }
 
 .container a {
@@ -229,4 +234,12 @@ header p:nth-child(3){
 
 .container a:hover {
   color: mediumblue;
+}
+
+#pass1 {
+  background-image: url('images/form_imgs/view.png');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 17px) center;
+  background-size: 20px 20px;
+  cursor: pointer;
 }
