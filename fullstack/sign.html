@@ -21,7 +21,7 @@
             </div>
             <p><u>Guru Mobile Accessories</u> &amp; <u>Electronics</u></p>
             <p>Grab Latest mobile accessories and electronics at unbeatable prices.To continue, Sign up.</p>
-            <a href="Homepage.html">Go to Home</a>
+            <a href="Homepage.html" id="home">Go to Home</a>
         </header>
     </div>
 
@@ -38,10 +38,16 @@
                 <span class="sharemail">We will never share your email with anyone.</span>
 
                 <label for="pass1" id="password">Password:</label>
-                <input type="password" id="pass1" name="pass1" placeholder="Enter your password" required>
+                <div class="passworddiv">
+                    <input type="password" id="pass1" name="pass1" placeholder="Enter your password" required>
+                    <img src="images/form_imgs/view.png" alt="Show" id="showpass">
+                </div>
 
                 <label for="pass2">Confirm Password:</label>
-                <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required>
+                <div class="passworddiv confirmdiv">
+                    <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required>
+                    <img src="images/form_imgs/view.png" alt="Show" id="showconpass">
+                </div>
 
                 <div id="msg"></div>
 

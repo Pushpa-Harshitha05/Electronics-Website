@@ -109,6 +109,17 @@ header a{
   }
 }
 
+#home{
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+#home:hover{
+  transform: scale(1.1);
+  color: white;
+}
+
 header p:nth-child(3){
   text-align: center  ;
   color: rgb(250, 249, 249);
@@ -161,7 +172,6 @@ header p:nth-child(3){
   border-radius: 5px;
   width: 100%;
 }
-
 .container input[type="email"]{
   margin-bottom: 8px;
 }
@@ -236,10 +246,34 @@ header p:nth-child(3){
   color: mediumblue;
 }
 
-#pass1 {
-  background-image: url('images/form_imgs/view.png');
-  background-repeat: no-repeat;
-  background-position: calc(100% - 17px) center;
-  background-size: 20px 20px;
+
+#showpass{
+  height: 20px;
+  width: 20px;
+}
+
+.passworddiv {
+  position: relative; 
+  display: flex;
+  width: 100%; 
+}
+
+.passworddiv input[type="password"] {
+  width: 100%; 
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+.passworddiv img {
+  position: absolute;
+  right: 10px;
+  top: 30%;
+  transform: translateY(-50%);
   cursor: pointer;
+  width: 20px; 
+  height: 20px; 
+}
+
+.confirmdiv img{
+  top: 35%;
 }
