@@ -3,7 +3,7 @@ $insert = false;
 
 function call()
 {
-    echo '<script>window.location.href="Homepage.html"</script>';
+    header("Location:Homepage.php");
 }
 
 if (isset($_POST['firname'])) {

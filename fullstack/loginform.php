@@ -1,5 +1,6 @@
 <?php
 $insert = false;
+session_start();
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $server = "localhost";
@@ -24,8 +25,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $count = mysqli_num_rows($result);
 
     if ($count == 1) {
-        echo "<script>alert('SUCCESSFULLY LOGGED IN !!');</script>";
-        echo "<script>window.location.href='Homepage.html';</script>";
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['user_id'] = $row['id'];
+        header("Location:Homepage.php");
     } else {
         echo "<script>alert('INCORRECT EMAIL OR PASSWORD');</script>";
         echo "<script>window.location.href='loginform.html';</script>";

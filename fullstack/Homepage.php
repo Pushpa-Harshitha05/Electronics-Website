@@ -1,3 +1,16 @@
+<?php
+
+$conn = mysqli_connect('localhost', 'root', '', 'signup');
+session_start();
+
+$user_id = $_SESSION['user_id'];
+
+if (!isset($user_id)) {
+   echo "empty";
+}
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -13,7 +26,23 @@
 
 <body>
    <header><BR>
-      <p><u>Guru Mobile Accessories</u> &amp; <u> Electronics</u></p>
+      <div class="logo">
+         <p><u>Guru Mobile Accessories</u> &amp; <u> Electronics</u></p>
+      </div>
+      <?php
+
+      $select_user = mysqli_query($conn, "SELECT * FROM `details` WHERE id='$user_id'") or die("query failed");
+
+      if (mysqli_num_rows($select_user) > 0) {
+         $fetch_user = mysqli_fetch_assoc($select_user);
+      }
+
+      ?>
+
+      <div class="profile">
+         <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
+      </div>
+
    </header><br><br><br><br><br><br>
    <div class="start">
       <nav>
@@ -22,17 +51,9 @@
          <a href="about.html" target="_self">About</a>
          <a href="sign.html" target="_self">Sign Up</a>
       </nav>
-   </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   </div>
    <div class="total">
-      <h2>
-         <br><br>
-         <p align="center">Welcome to Guru Mobile Accessories &amp; Electronics</p>
-      </h2>
-      <h2>
-         <br>
-         <p align="center" class="searching"><label for="select"><b>SEARCH FOR ITEMS HERE : </b></label></p>
-      </h2>
-      <img src="images/homepage_imgs/online-shoping.png" class="shopimg"><br>
+      <h3 align="center">Welcome to Guru Mobile Accessories &amp; Electronics</h3>
       <p align="center"><input type="search" id="select" list="items" placeholder="search for products">
          <datalist id="items">
             <option>mouse</option>
@@ -41,7 +62,7 @@
             <option>speakers</option>
             <option>pendrives</option>
          </datalist>
-         <input type="button" id="btn" value="search" onclick="search()">
+         <input type="image" src="images/homepage_imgs/search_img.png" id="btn" onclick="search()">
       </p>
       <br><br>
       <marquee behaviour="alternate" scrollamount="20" onmouseover="this.stop()" onmouseout="this.start()">
