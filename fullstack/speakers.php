@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+
+$conn = mysqli_connect('localhost', 'root', '', 'signup');
+session_start();
+
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+if (!$user_id) {
+
+} else {
+  $select_user = mysqli_query($conn, "SELECT * FROM `details` WHERE id='$user_id'");
+
+  if (!$select_user) {
+    die("query failed");
+  }
+
+  if (mysqli_num_rows($select_user) > 0) {
+    $fetch_user = mysqli_fetch_assoc($select_user);
+  } else {
+    $fetch_user = null;
+  }
+}
+
+?>
+
 <head>
   <title>SPEAKER ELECTRONIC APPLIANCES</title>
   <meta charset="UTF-8">
@@ -12,9 +37,38 @@
 </head>
 
 <body>
-  <header>
+  <header><BR>
+    <div class="logo">
+      <p><u>Guru Mobile Accessories</u> &amp; <u> Electronics</u></p>
+    </div>
+    <?php if ($user_id && $fetch_user): ?>
+      <div class="profile">
+        <div class="cartitems">
+          <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
+          <span id="cartcount">0</span>
+        </div>
+        <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
+      </div>
+    <?php else: ?>
+      <div class="userbtns">
+        <a href="sign.html">Sign up</a>
+        <span>or</span>
+        <a href="loginform.html">Login</a>
+      </div>
+    <?php endif; ?>
+
+  </header><br><br><br><br><br><br>
+  <div class="start">
+    <nav>
+      <a href="#" target="_parent"><mark>Home</mark></a>
+      <a href="appl.html" target="_self">Appliances</a>
+      <a href="about.html" target="_self">About</a>
+      <a href="#footer" target="_self">Contact us</a>
+    </nav>
+  </div>
+  <section>
     <h1>SPEAKERS</h1>
-  </header>
+  </section>
 
   <main class="product-container">
     <div class="product">
