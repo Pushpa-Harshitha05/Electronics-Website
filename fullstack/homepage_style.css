@@ -3,6 +3,10 @@
   margin: 0;
   padding: 0;
 }
+
+html{
+  scroll-behavior: smooth;
+}
   
 body {
   background: url("images/homepage_imgs/background.jpg");
@@ -26,40 +30,75 @@ h1 {
 
 header {
   background: linear-gradient(-90deg, skyblue, white, skyblue);
-  padding: 14px 0px;
-  text-align: center;
+  padding: 14px 20px;
   color: darkblue;
   width: 100vw;
-  height: 110px;
-  padding-right: 17px;
+  height: 100.5px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center; 
+  align-items: center; 
+  position: relative; 
+  box-sizing: border-box;
 }
 
-header .logo{
-  margin-bottom: 10px;
+header .logo {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  font-size: 2.07rem;
+  text-decoration: underline;
+  text-align: center;
+  width: 100%;
+}
+
+header .profile,
+header .userbtns {
+  margin-left: auto; 
+  display: flex;
+  align-items: center;
   position: absolute;
-  left: 29.35%;
+  right: 40px;
+  margin-top: 6.5px;
+}
+
+header .userbtns {
+  gap: 8px;
 }
 
 header .profile{
-  margin-right: 28px;
-  cursor: pointer;
+  gap: 25px;
 }
 
-#profileimg{
-  width: 36px;
-  height: 36px;
-  border-radius: 20px;
+#cart{
+  width: 32px;
+  height: 32px;
+}
+
+#profileimg {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
   opacity: 0.82;
+  margin-right: 8px; 
+}
+
+header .userbtns a {
+  background-color: darkblue;
+  text-decoration: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
 header p {
-  text-decoration: underline;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-weight: bold;
-  font-size: 2.2rem;
+  margin: 0; 
+}
+
+.cartitems{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 nav {
@@ -171,11 +210,14 @@ a:hover {
 .total {
   margin-top: 10%;
   width: 99.5%;
+  height: fit-content;
   background: linear-gradient(-90deg, rgb(155, 207, 227), white, rgb(155, 207, 227));
   border-radius: 15px;
   margin-left: 0.25%;
   border: 4.5px solid rgb(21, 92, 120);
   box-shadow: 0 0 100px rgb(127, 165, 179);
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 .total p{
@@ -241,14 +283,6 @@ header,
 .columnpic{
   height:340px;
   width: 50%;
-}
-
-.signin a{
-  font-size: 27px;
-}
-
-.signin p{
-  font-size: 22px;
 }
 
 .columnpic img{
@@ -436,14 +470,6 @@ footer .details p{
 
   .last p{
     font-size: 2rem;
-  }
-
-  .signin a{
-    font-size: 1.3rem;
-  }
-  
-  .signin p{
-    font-size: 1rem;
   }
 
   .heading{

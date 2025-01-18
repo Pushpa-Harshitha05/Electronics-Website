@@ -3,7 +3,7 @@ $insert = false;
 
 function call()
 {
-    header("Location:Homepage.php");
+    header("Location:loginform.html");
 }
 
 if (isset($_POST['firname'])) {

@@ -1,39 +1,101 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  font-family: 'Josefin Sans', Arial, sans-serif;
+  margin: 0;
   background: rgb(255, 255, 255);
 }
 
-.container {
+header {
+  text-align: center;
+  padding: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+
+.product-container {
   display: flex;
-  padding: 0px;
-  margin: 0px;
-  height: 600px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px;
+  gap: 80px;
+  flex-wrap: wrap;
 }
 
-.container div {
-  padding: 60px;
-  margin: 40px;
-  height: 420px;
+.product {
+  position: relative;
   width: 20%;
-  box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+  max-width: 300px;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.container div:hover {
-  box-shadow: 10px 5px 10px rgba(0, 0, 0, .5);
+.product:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 }
-div .btnsubmit{
-  margin: 0px;
-  margin-top: 40px;
-  height: 35px;
-  font-size: 16px;
-  width: 145px;
+
+.product img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.product h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.product p {
+  font-size: 0.9em;
+  color: #656464;
+  margin: 20px 0;
+  line-height: 1.1rem;
+}
+
+.product b {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.product s {
+  color: #777;
+}
+
+.checkoutbtns{
+  width: 85%;
+  position: absolute;
+  bottom: -60px;
+  margin-bottom: 55px;
+}
+
+.btnsubmit {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  font-size: 0.9em;
   background-color: orange;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s;
 }
 
-b {
-  font-size: 20px;
-}
-
-.container p {
-  font-size: 20px;
+.btnsubmit:hover {
+  background-color: #e69500;
 }

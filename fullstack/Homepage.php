@@ -1,18 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
 <?php
 
 $conn = mysqli_connect('localhost', 'root', '', 'signup');
 session_start();
 
-$user_id = $_SESSION['user_id'];
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
-if (!isset($user_id)) {
-   echo "empty";
+if (!$user_id) {
+
+} else {
+   $select_user = mysqli_query($conn, "SELECT * FROM `details` WHERE id='$user_id'");
+
+   if (!$select_user) {
+      die("query failed");
+   }
+
+   if (mysqli_num_rows($select_user) > 0) {
+      $fetch_user = mysqli_fetch_assoc($select_user);
+   } else {
+      $fetch_user = null;
+   }
 }
 
 ?>
-
-<!DOCTYPE HTML>
-<html>
 
 <head>
    <title>Electronic shopping site</title>
@@ -29,19 +41,21 @@ if (!isset($user_id)) {
       <div class="logo">
          <p><u>Guru Mobile Accessories</u> &amp; <u> Electronics</u></p>
       </div>
-      <?php
-
-      $select_user = mysqli_query($conn, "SELECT * FROM `details` WHERE id='$user_id'") or die("query failed");
-
-      if (mysqli_num_rows($select_user) > 0) {
-         $fetch_user = mysqli_fetch_assoc($select_user);
-      }
-
-      ?>
-
-      <div class="profile">
-         <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
-      </div>
+      <?php if ($user_id && $fetch_user): ?>
+         <div class="profile">
+            <div class="cartitems">
+               <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
+               <span id="cartcount">0</span>
+            </div>
+            <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
+         </div>
+      <?php else: ?>
+         <div class="userbtns">
+            <a href="sign.html">Sign up</a>
+            <span>or</span>
+            <a href="loginform.html">Login</a>
+         </div>
+      <?php endif; ?>
 
    </header><br><br><br><br><br><br>
    <div class="start">
@@ -49,7 +63,7 @@ if (!isset($user_id)) {
          <a href="#" target="_parent"><mark>Home</mark></a>
          <a href="appl.html" target="_self">Appliances</a>
          <a href="about.html" target="_self">About</a>
-         <a href="sign.html" target="_self">Sign Up</a>
+         <a href="#footer" target="_self">Contact us</a>
       </nav>
    </div>
    <div class="total">
@@ -65,6 +79,7 @@ if (!isset($user_id)) {
          <input type="image" src="images/homepage_imgs/search_img.png" id="btn" onclick="search()">
       </p>
       <br><br>
+
       <marquee behaviour="alternate" scrollamount="20" onmouseover="this.stop()" onmouseout="this.start()">
          <div class="row">
             <img id="pict" src="images/homepage_imgs/scroll_img1.jpg">
@@ -85,11 +100,12 @@ if (!isset($user_id)) {
          <img id="pic" src="images/homepage_imgs/sale2.jpg">
          <p>BEST&nbsp;OF&nbsp;ELECTRONIC&nbsp;GOODS</p><br><br><br>
       </div>
-      <br><br>
-      <u>
-         <p class="heading">ELECTRONIC&nbsp;APPLIANCES&nbsp;FROM&nbsp;VARIOUS&nbsp;BRANDS</p>
-      </u><br>
       <div class="links">
+         <div>
+            <u>
+               <h2 class="heading">ELECTRONIC&nbsp;APPLIANCES&nbsp;FROM&nbsp;VARIOUS&nbsp;BRANDS</h2>
+            </u>
+         </div>
          <div class="second">
             <a href="mouse.html"><img id="pic" src="images/mouse_imgs/mouse1.jpeg"></a>
          </div>
@@ -115,11 +131,8 @@ if (!isset($user_id)) {
          </div>
       </div>
       <br>
-      <div class="signin">
-         <p align="center"><a href="sign.html">SIGN IN</a><br>For Better Experience</p>
-      </div>
    </div>
-   <footer>
+   <footer id="footer">
       <div class="footer-content">
          <div class="footer-column">
             <h3>Contact Us</h3>
