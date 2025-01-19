@@ -27,13 +27,13 @@ if (!$user_id) {
 ?>
 
 <head>
-  <title>SPEAKER ELECTRONIC APPLIANCES</title>
+  <title>MOUSE ELECTRONIC APPLIANCES</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="speakers_style.css">
+  <link rel="stylesheet" href="mouse_style.css">
 </head>
 
 <body>
@@ -67,16 +67,16 @@ if (!$user_id) {
     </nav>
   </div>
   <section>
-    <h1>SPEAKERS</h1>
+    <h1>Mouse Appliances</h1>
   </section>
 
   <main class="product-container">
     <div class="product">
-      <img src="images/speaker_imgs/speaker1.jpg" alt="INVICTO Speaker">
-      <h3>INVICTO</h3>
-      <p>TG113 Portable Bluetooth Speaker with USB/Micro SD Card/AUX/Mic Multimedia Speaker System</p>
+      <img src="images/mouse_imgs/mouse1.jpeg" alt="DELL Wireless Mouse">
+      <h3>DELL</h3>
+      <p>company's Full Size Wireless Mouse,High resolution 1600 DPI</p>
       <p>
-        <b>&#8377; 320.00</b> <s>&#8377; 599.00</s> INR*. In stock
+        <b>&#8377;&nbsp; 727.00</b> INR*. In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -85,11 +85,12 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker2.jpg" alt="FORT Soundbar">
-      <h3>FORT</h3>
-      <p>S24 24W MINI SOUNDBAR</p>
+
+      <img src="images/mouse_imgs/mouse2.jpg" alt="ENTWINO Gaming Mouse">
+      <h3>ENTWINO</h3>
+      <p>USB Wired Gaming Mouse D1 ,LED Backlight up to 3200 DPI, Ergonomic Design for Laptop</p>
       <p>
-        <b>&#8377; 1899.00</b> INR*. In stock
+        <b>&#8377;&nbsp;229.00</b> INR*. In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -98,11 +99,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker3.webp" alt="BOAT Stone 350">
-      <h3>BOAT</h3>
-      <p>Stone 350 10 W Bluetooth Speaker (Black, Mono Channel)</p>
+      <img src="images/mouse_imgs/mouse3.webp" alt="ZEBRONICS Mouse">
+      <h3>ZEBRONICS</h3>
+      <p>Zeb-Jaguar Wireless Optical Mouse (2.4GHz Wireless, Black), Special price</p>
       <p>
-        <b>&#8377; 1699.00</b> <s>&#8377; 3490.00</s> 51% off
+        <b>&#8377; 399.00</b> <s>&#8377; 1,190.00</s> 66% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -113,11 +114,11 @@ if (!$user_id) {
 
   <main class="product-container">
     <div class="product">
-      <img src="images/speaker_imgs/speaker4.jpg" alt="BOAT Stone 650R">
-      <h3>BOAT</h3>
-      <p>Stone 650R Wireless Bluetooth Portable Speaker with 10W Output, IPX5 water resistance</p>
+      <img src="images/mouse_imgs/mouse4.jpeg" alt="LOGITECH Wired Mouse">
+      <h3>LOGITECH</h3>
+      <p>Buy Logitech M90 Wired Mouse Online at<br> Best Price .</p>
       <p>
-        <b>&#8377; 1599.00</b> <s>&#8377; 1804.00</s> INR*. In stock
+        <b>&#8377; 385.00</b> <s>&#8377; 425.00</s> INR*. In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -126,11 +127,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker5.webp" alt="ZEBRONICS Zeb-Bellow">
-      <h3>ZEBRONICS</h3>
-      <p>Zeb-Bellow 3 Watt Truly Wireless Bluetooth Portable Speaker (Blue)</p>
+      <img src="images/mouse_imgs/mouse5.png" alt="CROMA Optical Mouse">
+      <h3>CROMA</h3>
+      <p>Buy Croma XM5109 Rechargeable Wireless Optical Mouse (1600 DPI Adjustable)</p>
       <p>
-        <b>&#8377; 679.00</b> <s>&#8377; 895.00</s> INR*. In stock
+        <b>&#8377; 600.00</b> <s>&#8377; 725.00</s> INR*. In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -139,11 +140,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker6.webp" alt="BOAT Stone 580">
-      <h3>BOAT</h3>
-      <p>Stone 580 Bluetooth Speaker with 12W RMS Stereo Sound, Up to 8 HRS Playtime, IPX4 12 W Speaker</p>
+      <img src="images/mouse_imgs/mouse6.png" alt="HP Wired Mouse">
+      <h3>HP</h3>
+      <p>1000 Wired Optical Mouse (USB 3.0, USB 2.0, Black)</p>
       <p>
-        <b>&#8377; 2040.00</b> <s>&#8377; 4990.00</s> 59% off
+        <b>&#8377; 329.00</b> <s>&#8377; 399.00</s> 17% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -155,11 +156,11 @@ if (!$user_id) {
   <button type="button" id="loadbtn">Load More</button>
   <main class="product-container" id="hide">
     <div class="product">
-      <img src="images/speaker_imgs/speaker7.jpg" alt="BOAT Stone 580">
-      <h3>pTron</h3>
-      <p>Newly Launched Fusion Hook v2 6W Bluetooth Speaker with 8 Hrs Playtime, 2.04" Neo Driver for Pristine Sound</p>
+      <img src="images/mouse_imgs/mouse7.jpg" alt="EVOFOX Gaming Mouse">
+      <h3>EvoFox</h3>
+      <p>Starter Series Spectre USB Wired Gaming Mouse with Upto 3600 DPI Gaming Sensor | 6 Buttons Design</p>
       <p>
-        <b>&#8377; 499.00</b> <s>&#8377; 1499.00</s> 59% off
+        <b>&#8377; 299.00</b> <s>&#8377; 799.00</s> 63% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -167,11 +168,11 @@ if (!$user_id) {
       </div>
     </div>
     <div class="product">
-      <img src="images/speaker_imgs/speaker8.webp" alt="BOAT Stone 580">
+      <img src="images/mouse_imgs/mouse8.webp" alt="amazon basics">
       <h3>amazon basics</h3>
-      <p>5W Bluetooth 5.3 Speaker, Upto 36 Hrs Playtime, True Wireless Technology</p>
+      <p>2.4GHz Wireless + Bluetooth 5.1 Mouse, Multi-Device Dual Mode Slim Rechargeable Silent Click Buttons</p>
       <p>
-        <b>&#8377; 699.00</b> <s>&#8377; 1499.00</s> 59% off
+        <b>&#8377; 549.00</b> <s>&#8377; 1099.00</s> 50% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -179,12 +180,12 @@ if (!$user_id) {
       </div>
     </div>
     <div class="product">
-      <img src="images/speaker_imgs/speaker9.webp" alt="BOAT Stone 580">
-      <h3>Portronics</h3>
-      <p>Apollo One 20W Wireless Bluetooth Portable Speaker with Wireless Karaoke Mic, 5 Hour Playtime, RGB LED Light,
-        Bluetooth V5.3</p>
+      <img src="images/mouse_imgs/mouse9.webp" alt="BOAT Stone 580">
+      <h3>ZEBRONICS</h3>
+      <p>Zeb-Jaguar Wireless Mouse, 2.4GHz with USB Nano Receiver, High Precision Optical Tracking, 4 Buttons, Plug &
+        Play</p>
       <p>
-        <b>&#8377; 1,199.00</b> <s>&#8377; 2499.00</s> 59% off
+        <b>&#8377; 299.00</b> <s>&#8377; 1190.00</s> 75% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -211,7 +212,7 @@ if (!$user_id) {
       <p>&copy; 2025 Guru Mobile Accessories & Electronics. All Rights Reserved.</p>
     </div>
   </footer>
-  <script src="speakers_script.js"></script>
+  <script src="mouse_script.js"></script>
 </body>
 
 </html>

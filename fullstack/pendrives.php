@@ -27,13 +27,13 @@ if (!$user_id) {
 ?>
 
 <head>
-  <title>SPEAKER ELECTRONIC APPLIANCES</title>
+  <title>PENDRIVE ELECTRONIC APPLIANCES</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="speakers_style.css">
+  <link rel="stylesheet" href="pendrives_style.css">
 </head>
 
 <body>
@@ -67,16 +67,16 @@ if (!$user_id) {
     </nav>
   </div>
   <section>
-    <h1>SPEAKERS</h1>
+    <h1>Pendrives</h1>
   </section>
 
   <main class="product-container">
     <div class="product">
-      <img src="images/speaker_imgs/speaker1.jpg" alt="INVICTO Speaker">
-      <h3>INVICTO</h3>
-      <p>TG113 Portable Bluetooth Speaker with USB/Micro SD Card/AUX/Mic Multimedia Speaker System</p>
+      <img src="images/pendrive_imgs/pendrive1.webp" alt="SANDISK Pendrive">
+      <h3>SANDISK</h3>
+      <p>Cruzer Blade 32GB USB 2.0 Flash Drive SDCZ50-032G-B35 (Red)</p>
       <p>
-        <b>&#8377; 320.00</b> <s>&#8377; 599.00</s> INR*. In stock
+        <b>&#8377; 199.00</b> <s>&#8377; 230.00</s> INR*. In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -85,11 +85,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker2.jpg" alt="FORT Soundbar">
-      <h3>FORT</h3>
-      <p>S24 24W MINI SOUNDBAR</p>
+      <img src="images/pendrive_imgs/pendrive2.jpg" alt="Swivel Pendrive">
+      <h3>Swivel</h3>
+      <p>USB Pendrive 32 GB Ultra-thin and sleek Pen drive made with durable metal</p>
       <p>
-        <b>&#8377; 1899.00</b> INR*. In stock
+        <b>&#8377; 550.00</b> INR* . In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -98,11 +98,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker3.webp" alt="BOAT Stone 350">
-      <h3>BOAT</h3>
-      <p>Stone 350 10 W Bluetooth Speaker (Black, Mono Channel)</p>
+      <img src="images/pendrive_imgs/pendrive3.webp" alt="Consistent Pendrive">
+      <h3>Consistent</h3>
+      <p>64GB Metal Pendrive With Keychain Carabiner, 5 Years Warranty 64 GB Pen Drive (Silver)</p>
       <p>
-        <b>&#8377; 1699.00</b> <s>&#8377; 3490.00</s> 51% off
+        <b>&#8377; 415.00</b> <s>&#8377; 1,999.00</s> 79% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -113,11 +113,11 @@ if (!$user_id) {
 
   <main class="product-container">
     <div class="product">
-      <img src="images/speaker_imgs/speaker4.jpg" alt="BOAT Stone 650R">
-      <h3>BOAT</h3>
-      <p>Stone 650R Wireless Bluetooth Portable Speaker with 10W Output, IPX5 water resistance</p>
+      <img src="images/pendrive_imgs/pendrive4.webp" alt="SANDISK Pendrive">
+      <h3>SANDISK</h3>
+      <p>Ultra Dual Drive m3.0 128GB USB 3.0 (Type-A),<br> Micro USB (Type-B) Flash Drive.</p>
       <p>
-        <b>&#8377; 1599.00</b> <s>&#8377; 1804.00</s> INR*. In stock
+        <b>&#8377; 909.00</b> <s>&#8377; 1,000.00</s> INR* In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -126,11 +126,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker5.webp" alt="ZEBRONICS Zeb-Bellow">
-      <h3>ZEBRONICS</h3>
-      <p>Zeb-Bellow 3 Watt Truly Wireless Bluetooth Portable Speaker (Blue)</p>
+      <img src="images/pendrive_imgs/pendrive5.jpg" alt="HP Pendrive">
+      <h3>HP</h3>
+      <p>v236w USB 2.0 64GB Pen Drive, Metal, Silver</p>
       <p>
-        <b>&#8377; 679.00</b> <s>&#8377; 895.00</s> INR*. In stock
+        <b>&#8377; 399.00</b> <s>&#8377; 725.00</s> INR* In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -139,11 +139,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker6.webp" alt="BOAT Stone 580">
-      <h3>BOAT</h3>
-      <p>Stone 580 Bluetooth Speaker with 12W RMS Stereo Sound, Up to 8 HRS Playtime, IPX4 12 W Speaker</p>
+      <img src="images/pendrive_imgs/pendrive6.webp" alt="SanDisk Pendrive">
+      <h3>SanDisk</h3>
+      <p>SDDDC3-064G-I35NB 64 GB OTG Drive (Blue, Type A to Type C)</p>
       <p>
-        <b>&#8377; 2040.00</b> <s>&#8377; 4990.00</s> 59% off
+        Special price<br><b>&#8377; 659.00</b> <s>&#8377; 1,600.00</s> 58% off INR*
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -155,11 +155,11 @@ if (!$user_id) {
   <button type="button" id="loadbtn">Load More</button>
   <main class="product-container" id="hide">
     <div class="product">
-      <img src="images/speaker_imgs/speaker7.jpg" alt="BOAT Stone 580">
-      <h3>pTron</h3>
-      <p>Newly Launched Fusion Hook v2 6W Bluetooth Speaker with 8 Hrs Playtime, 2.04" Neo Driver for Pristine Sound</p>
+      <img src="images/pendrive_imgs/pendrive7.jpg" alt="Amazon Basics keyboard">
+      <h3>Amazon Basics</h3>
+      <p>64 GB Flash Drive | USB 3.0 | Upto 150 MB/s | Silver</p>
       <p>
-        <b>&#8377; 499.00</b> <s>&#8377; 1499.00</s> 59% off
+        <b>&#8377; 469.00</b> <s>&#8377; 999.00</s> 53% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -167,30 +167,31 @@ if (!$user_id) {
       </div>
     </div>
     <div class="product">
-      <img src="images/speaker_imgs/speaker8.webp" alt="BOAT Stone 580">
-      <h3>amazon basics</h3>
-      <p>5W Bluetooth 5.3 Speaker, Upto 36 Hrs Playtime, True Wireless Technology</p>
+      <img src="images/pendrive_imgs/pendrive8.webp" alt="HP">
+      <h3>HP</h3>
+      <p>USB 2.0 Flash Drive 128GB v150w-Blue</p>
       <p>
-        <b>&#8377; 699.00</b> <s>&#8377; 1499.00</s> 59% off
+        <b>&#8377; 569.00</b> <s>&#8377; 1900.00</s> 70% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
         <button class="btnsubmit">Add To Cart</button>
       </div>
     </div>
+
     <div class="product">
-      <img src="images/speaker_imgs/speaker9.webp" alt="BOAT Stone 580">
-      <h3>Portronics</h3>
-      <p>Apollo One 20W Wireless Bluetooth Portable Speaker with Wireless Karaoke Mic, 5 Hour Playtime, RGB LED Light,
-        Bluetooth V5.3</p>
+      <img src="images/pendrive_imgs/pendrive9.webp" alt="Geonix Pendrive">
+      <h3>Geonix</h3>
+      <p>8GB Pendrive I Silver I USB 2.0 I Keyring Design I Lightweight I Variant 8GB I 5 Years Warranty</p>
       <p>
-        <b>&#8377; 1,199.00</b> <s>&#8377; 2499.00</s> 59% off
+        <b>&#8377; 319.00</b> <s>&#8377; 799.00</s> 63% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
         <button class="btnsubmit">Add To Cart</button>
       </div>
     </div>
+
   </main>
 
   <footer id="footer">
@@ -211,7 +212,7 @@ if (!$user_id) {
       <p>&copy; 2025 Guru Mobile Accessories & Electronics. All Rights Reserved.</p>
     </div>
   </footer>
-  <script src="speakers_script.js"></script>
+  <script src="mouse_script.js"></script>
 </body>
 
 </html>

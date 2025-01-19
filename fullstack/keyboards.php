@@ -27,13 +27,13 @@ if (!$user_id) {
 ?>
 
 <head>
-  <title>SPEAKER ELECTRONIC APPLIANCES</title>
+  <title>KEYBOARD ELECTRONIC APPLIANCES</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="speakers_style.css">
+  <link rel="stylesheet" href="keyborads_style.css">
 </head>
 
 <body>
@@ -67,16 +67,16 @@ if (!$user_id) {
     </nav>
   </div>
   <section>
-    <h1>SPEAKERS</h1>
+    <h1>Keyboards</h1>
   </section>
 
   <main class="product-container">
     <div class="product">
-      <img src="images/speaker_imgs/speaker1.jpg" alt="INVICTO Speaker">
-      <h3>INVICTO</h3>
-      <p>TG113 Portable Bluetooth Speaker with USB/Micro SD Card/AUX/Mic Multimedia Speaker System</p>
+      <img src="images/keyboard_imgs/keyboard1.webp" alt="EXQUISITE Keyboard">
+      <h3>EXQUISITE</h3>
+      <p>Wireless Keyboard Combo Warranty: 3 year</p>
       <p>
-        <b>&#8377; 320.00</b> <s>&#8377; 599.00</s> INR*. In stock
+        <b>&#8377; 1,299.00</b> <s>&#8377; 1,999.00</s> INR*. In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -85,11 +85,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker2.jpg" alt="FORT Soundbar">
-      <h3>FORT</h3>
-      <p>S24 24W MINI SOUNDBAR</p>
+      <img src="images/keyboard_imgs/keyboard2.webp" alt="FINGERS Keyboard">
+      <h3>FINGERS</h3>
+      <p>Velvet Combo C4 Warranty: 3 year</p>
       <p>
-        <b>&#8377; 1899.00</b> INR*. In stock
+        <b>&#8377; 845.00</b> <s>&#8377; 1,999.00</s> Inclusive of all taxes INR* . In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -98,11 +98,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker3.webp" alt="BOAT Stone 350">
-      <h3>BOAT</h3>
-      <p>Stone 350 10 W Bluetooth Speaker (Black, Mono Channel)</p>
+      <img src="images/keyboard_imgs/keyboard3.webp" alt="Portronics keyboard">
+      <h3>Portronics</h3>
+      <p>Key5 Combo POR-1569 Wireless Laptop Keyboard (Grey)</p>
       <p>
-        <b>&#8377; 1699.00</b> <s>&#8377; 3490.00</s> 51% off
+        <b>&#8377; 899.00</b> <s>&#8377; 1,999.00</s> 55% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -113,11 +113,11 @@ if (!$user_id) {
 
   <main class="product-container">
     <div class="product">
-      <img src="images/speaker_imgs/speaker4.jpg" alt="BOAT Stone 650R">
-      <h3>BOAT</h3>
-      <p>Stone 650R Wireless Bluetooth Portable Speaker with 10W Output, IPX5 water resistance</p>
+      <img src="images/keyboard_imgs/keyboard4.jpg" alt="AMAZON keyboard">
+      <h3>AMAZON</h3>
+      <p>Basics Wired Keyboard for Windows,USB 2.0 Interface, for PC, Computer, Laptop, Mac (Black)</p>
       <p>
-        <b>&#8377; 1599.00</b> <s>&#8377; 1804.00</s> INR*. In stock
+        Rs.<b>&#8377; 499.00</b> Inclusive of all taxes INR* In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -126,11 +126,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker5.webp" alt="ZEBRONICS Zeb-Bellow">
-      <h3>ZEBRONICS</h3>
-      <p>Zeb-Bellow 3 Watt Truly Wireless Bluetooth Portable Speaker (Blue)</p>
+      <img src="images/keyboard_imgs/keyboard5.jpg" alt="RAPOO keyboard">
+      <h3>RAPOO</h3>
+      <p>V500 Pro Mechanical Gaming Keyboard Cyan Blue</p>
       <p>
-        <b>&#8377; 679.00</b> <s>&#8377; 895.00</s> INR*. In stock
+        <b>&#8377; 799.00</b> INR* In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -139,11 +139,11 @@ if (!$user_id) {
     </div>
 
     <div class="product">
-      <img src="images/speaker_imgs/speaker6.webp" alt="BOAT Stone 580">
-      <h3>BOAT</h3>
-      <p>Stone 580 Bluetooth Speaker with 12W RMS Stereo Sound, Up to 8 HRS Playtime, IPX4 12 W Speaker</p>
+      <img src="images/keyboard_imgs/keyboard6.webp" alt="Portronics keyboard">
+      <h3>Portronics</h3>
+      <p>Bubble Max Sleek Wireless, Silent Keys, Auto Sleep Mode, 2.4Ghz + Wireless Laptop Keyboard (Green)</p>
       <p>
-        <b>&#8377; 2040.00</b> <s>&#8377; 4990.00</s> 59% off
+        <b>&#8377; 753.00</b> <s>&#8377; 1,299.00</s> 42% off INR*
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -155,11 +155,11 @@ if (!$user_id) {
   <button type="button" id="loadbtn">Load More</button>
   <main class="product-container" id="hide">
     <div class="product">
-      <img src="images/speaker_imgs/speaker7.jpg" alt="BOAT Stone 580">
-      <h3>pTron</h3>
-      <p>Newly Launched Fusion Hook v2 6W Bluetooth Speaker with 8 Hrs Playtime, 2.04" Neo Driver for Pristine Sound</p>
+      <img src="images/keyboard_imgs/keyboard7.webp" alt="HP keyboard">
+      <h3>HP</h3>
+      <p>K100 Wired Keyboard, Quick, Comfy and Accurate, USB Plug & Play Setup,LED Indicators</p>
       <p>
-        <b>&#8377; 499.00</b> <s>&#8377; 1499.00</s> 59% off
+        <b>&#8377; 599.00</b> <s>&#8377; 1250.00</s> 52% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
@@ -167,30 +167,33 @@ if (!$user_id) {
       </div>
     </div>
     <div class="product">
-      <img src="images/speaker_imgs/speaker8.webp" alt="BOAT Stone 580">
-      <h3>amazon basics</h3>
-      <p>5W Bluetooth 5.3 Speaker, Upto 36 Hrs Playtime, True Wireless Technology</p>
+      <img src="images/keyboard_imgs/keyboard8.webp" alt="ZEBRONICS">
+      <h3>ZEBRONICS</h3>
+      <p>K36 Wired USB Keyboard with 106 Keys, Slim Design, Smartphone Holder, Retractable Stand, 1.2m Cable Length,
+        Rupee Key</p>
       <p>
-        <b>&#8377; 699.00</b> <s>&#8377; 1499.00</s> 59% off
+        <b>&#8377; 268.00</b> <s>&#8377; 499.00</s> 46% off
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
         <button class="btnsubmit">Add To Cart</button>
       </div>
     </div>
+
     <div class="product">
-      <img src="images/speaker_imgs/speaker9.webp" alt="BOAT Stone 580">
-      <h3>Portronics</h3>
-      <p>Apollo One 20W Wireless Bluetooth Portable Speaker with Wireless Karaoke Mic, 5 Hour Playtime, RGB LED Light,
-        Bluetooth V5.3</p>
+      <img src="images/keyboard_imgs/keyboard9.webp" alt="ZEBRONICS">
+      <h3>ZEBRONICS</h3>
+      <p>Trion USB Gaming Keyboard & Mouse Gaming Combo, 104 Keys Backlit, Translucent Material, Multi Color LED, Multi
+        DPI Modes</p>
       <p>
-        <b>&#8377; 1,199.00</b> <s>&#8377; 2499.00</s> 59% off
+        <b>&#8377; 1,199.00</b> <s>&#8377; 598.00</s> INR*. In stock
       </p>
       <div class="checkoutbtns">
         <button class="btnsubmit">Buy Now</button>
         <button class="btnsubmit">Add To Cart</button>
       </div>
     </div>
+
   </main>
 
   <footer id="footer">
@@ -211,7 +214,7 @@ if (!$user_id) {
       <p>&copy; 2025 Guru Mobile Accessories & Electronics. All Rights Reserved.</p>
     </div>
   </footer>
-  <script src="speakers_script.js"></script>
+  <script src="mouse_script.js"></script>
 </body>
 
 </html>

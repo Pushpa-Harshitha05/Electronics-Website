@@ -61,7 +61,7 @@ if (!$user_id) {
    <div class="start">
       <nav>
          <a href="#" target="_parent"><mark>Home</mark></a>
-         <a href="appl.html" target="_self">Appliances</a>
+         <a href="appl.php" target="_self">Appliances</a>
          <a href="about.html" target="_self">About</a>
          <a href="#footer" target="_self">Contact us</a>
       </nav>
@@ -107,17 +107,17 @@ if (!$user_id) {
             </u>
          </div>
          <div class="second">
-            <a href="mouse.html"><img id="pic" src="images/mouse_imgs/mouse1.jpeg"></a>
+            <a href="mouse.php"><img id="pic" src="images/mouse_imgs/mouse1.jpeg"></a>
          </div>
          <div class="second">
-            <a href="pendrives.html"><img id="pic" src="images/pendrive_imgs/pendrive5.jpg"></a>
+            <a href="pendrives.php"><img id="pic" src="images/pendrive_imgs/pendrive5.jpg"></a>
          </div>
          <div class="second">
-            <a href="keyboards.html"><img id="pic" src="images/homepage_imgs/keyboard_img.png"
+            <a href="keyboards.php"><img id="pic" src="images/homepage_imgs/keyboard_img.png"
                   style="background-color: white;"></a>
          </div>
          <div class="second">
-            <a href="screencards.html"><img id="pic" src="images/screencard_imgs/screen1.jpeg"></a>
+            <a href="screencards.php"><img id="pic" src="images/screencard_imgs/screen1.jpeg"></a>
          </div>
       </div>
       <div class="column last">

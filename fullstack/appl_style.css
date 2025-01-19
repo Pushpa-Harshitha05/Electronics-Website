@@ -105,9 +105,9 @@ mark {
 .sub h1 {
   margin: 10px 0;
   font-size: 1.5rem;
+  color: darkblue;
 }
 
-/* Highlighted Text Styling */
 h1,
 h2 {
   font-size: 2rem;
