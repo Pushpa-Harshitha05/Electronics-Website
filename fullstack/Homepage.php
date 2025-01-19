@@ -47,7 +47,15 @@ if (!$user_id) {
                <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
                <span id="cartcount">0</span>
             </div>
-            <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
+            <div class="profile-container">
+               <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
+               <div class="dropdown-menu" id="dropdownMenu">
+                  <a href="#">My Profile</a>
+                  <a href="#">Orders</a>
+                  <a href="#">Settings</a>
+                  <a href="logout.php">Logout</a>
+               </div>
+            </div>
          </div>
       <?php else: ?>
          <div class="userbtns">
@@ -62,7 +70,7 @@ if (!$user_id) {
       <nav>
          <a href="#" target="_parent"><mark>Home</mark></a>
          <a href="appl.php" target="_self">Appliances</a>
-         <a href="about.html" target="_self">About</a>
+         <a href="about.php" target="_self">About</a>
          <a href="#footer" target="_self">Contact us</a>
       </nav>
    </div>

@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Josefin Sans', sans-serif;
   background-color: rgb(238, 245, 248);
@@ -12,22 +16,85 @@ body {
 
 header {
   background: linear-gradient(-90deg, skyblue, white, skyblue);
-  padding: 30px 0px;
-  text-align: center;
+  padding: 14px 20px;
   color: darkblue;
+  width: 98.9vw;
+  height: 100.5px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  position: relative; 
+  box-sizing: border-box;
+}
+
+header .logo {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  font-size: 2.07rem;
+  text-decoration: underline;
+  text-align: center;
+  width: 100%;
+}
+
+header .profile,
+header .userbtns {
+  margin-left: auto; 
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 40px;
+  margin-top: 6.5px;
+}
+
+header .userbtns {
+  gap: 8px;
+}
+
+header .profile{
+  gap: 25px;
+}
+
+#cart{
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+#profileimg {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  opacity: 0.82;
+  margin-right: 8px; 
+  cursor: pointer;
+}
+
+header .userbtns a {
+  background-color: darkblue;
+  text-decoration: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
 header p {
-  text-decoration: underline;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-weight: bold;
-  font-size: 2.2rem;
+  margin: 0; 
+}
+
+.cartitems{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 nav {
   background-color: rgb(92, 167, 213);
   padding: 10px 0;
   text-align: center;
+  width: 100vw;
+  margin-top: 5px;
 }
 
 nav a {
@@ -43,6 +110,23 @@ nav a:hover {
   background-color: white;
   color: darkblue;
   border-radius: 5px;
+}
+
+mark{
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+header{
+  position: fixed;
+  z-index: 5;
+}
+
+.start{
+  position: fixed;
+  z-index: 1;
 }
 
 .main-content {
@@ -69,6 +153,15 @@ nav a:hover {
   margin-top: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.address:hover, .contact:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+.contact:hover{
+  cursor: pointer;
 }
 
 .contact img {
@@ -98,12 +191,50 @@ h2 {
   margin: 20px 0;
 }
 
+.main-content #firstheading{
+  margin: 50px 0px;
+}
+
 h2 {
   font-size: 1.9rem;
 }
 
-p{
+.address,.contact p,a{
   font-size: 1.2rem;
+  color: black;
+}
+
+a:hover{
+  color: darkblue;
+}
+
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 150px;
+  z-index: 10;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
 }
 
 /* Responsive Styles */

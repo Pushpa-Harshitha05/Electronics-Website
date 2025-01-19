@@ -1,10 +1,13 @@
-function search(){
-  let a=document.getElementById('select').value.toLowerCase();
-  if(a != ''){
-    window.location.href = a+'.html';
-  }
-}
+document.addEventListener('DOMContentLoaded', () => {
+  
+  document.getElementById('loadbtn').addEventListener('click', () => {
 
+    document.getElementById('hide').style.display = "flex";
+    document.getElementById('loadbtn').style.display = "none";
+
+  });
+
+});
 
 const profileImg = document.getElementById('profileimg');
 const dropdownMenu = document.getElementById('dropdownMenu');

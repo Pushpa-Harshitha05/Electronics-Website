@@ -47,7 +47,15 @@ if (!$user_id) {
           <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
           <span id="cartcount">0</span>
         </div>
-        <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
+        <div class="profile-container">
+          <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
+          <div class="dropdown-menu" id="dropdownMenu">
+            <a href="#">My Profile</a>
+            <a href="#">Orders</a>
+            <a href="#">Settings</a>
+            <a href="logout.php">Logout</a>
+          </div>
+        </div>
       </div>
     <?php else: ?>
       <div class="userbtns">
@@ -211,7 +219,7 @@ if (!$user_id) {
       <p>&copy; 2025 Guru Mobile Accessories & Electronics. All Rights Reserved.</p>
     </div>
   </footer>
-  <script src="speakers_script.js"></script>
+  <script src="loadmore_script.js"></script>
 </body>
 
 </html>

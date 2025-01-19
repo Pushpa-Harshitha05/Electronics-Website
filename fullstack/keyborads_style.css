@@ -57,6 +57,7 @@ header .profile{
 #cart{
   width: 32px;
   height: 32px;
+  cursor: pointer;
 }
 
 #profileimg {
@@ -64,7 +65,8 @@ header .profile{
   height: 34px;
   border-radius: 50%;
   opacity: 0.82;
-  margin-right: 8px; 
+  margin-right: 8px;
+  cursor: pointer; 
 }
 
 header .userbtns a {
@@ -117,9 +119,14 @@ mark{
   border-radius: 5px;
 }
 
-header, .start{
+header{
   position: fixed;
   z-index: 5;
+}
+
+.start{
+  position: fixed;
+  z-index: 1;
 }
 
 section {
@@ -325,4 +332,32 @@ footer .details p{
 
 .footer-bottom p {
   margin: 0;
+}
+
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 150px;
+  z-index: 10;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
 }
