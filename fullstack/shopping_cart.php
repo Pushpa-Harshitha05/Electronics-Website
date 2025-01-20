@@ -3,7 +3,7 @@
 $conn = mysqli_connect('localhost', 'root', '', 'signup');
 session_start();
 
-$user_id = $_SESSION['userid'];
+$user_id = $_SESSION['user_id'];
 
 if (!isset($user_id)) {
   header("Location:loginform.html");

@@ -50,7 +50,7 @@ if (!$user_id) {
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
           <div class="dropdown-menu" id="dropdownMenu">
-            <a href="#">My Profile</a>
+            <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
             <a href="logout.php">Logout</a>
@@ -79,7 +79,7 @@ if (!$user_id) {
   </section>
 
   <main class="product-container">
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/speaker_imgs/speaker1.jpg" alt="INVICTO Speaker">
       <h3>INVICTO</h3>
       <p>TG113 Portable Bluetooth Speaker with USB/Micro SD Card/AUX/Mic Multimedia Speaker System</p>
@@ -87,12 +87,12 @@ if (!$user_id) {
         <b>&#8377; 320.00</b> <s>&#8377; 599.00</s> INR*. In stock
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/speaker_imgs/speaker2.jpg" alt="FORT Soundbar">
       <h3>FORT</h3>
       <p>S24 24W MINI SOUNDBAR</p>
@@ -100,12 +100,12 @@ if (!$user_id) {
         <b>&#8377; 1899.00</b> INR*. In stock
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/speaker_imgs/speaker3.webp" alt="BOAT Stone 350">
       <h3>BOAT</h3>
       <p>Stone 350 10 W Bluetooth Speaker (Black, Mono Channel)</p>
@@ -113,14 +113,14 @@ if (!$user_id) {
         <b>&#8377; 1699.00</b> <s>&#8377; 3490.00</s> 51% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
   </main>
 
   <main class="product-container">
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/speaker_imgs/speaker4.jpg" alt="BOAT Stone 650R">
       <h3>BOAT</h3>
       <p>Stone 650R Wireless Bluetooth Portable Speaker with 10W Output, IPX5 water resistance</p>
@@ -128,12 +128,12 @@ if (!$user_id) {
         <b>&#8377; 1599.00</b> <s>&#8377; 1804.00</s> INR*. In stock
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/speaker_imgs/speaker5.webp" alt="ZEBRONICS Zeb-Bellow">
       <h3>ZEBRONICS</h3>
       <p>Zeb-Bellow 3 Watt Truly Wireless Bluetooth Portable Speaker (Blue)</p>
@@ -141,12 +141,12 @@ if (!$user_id) {
         <b>&#8377; 679.00</b> <s>&#8377; 895.00</s> INR*. In stock
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/speaker_imgs/speaker6.webp" alt="BOAT Stone 580">
       <h3>BOAT</h3>
       <p>Stone 580 Bluetooth Speaker with 12W RMS Stereo Sound, Up to 8 HRS Playtime, IPX4 12 W Speaker</p>
@@ -154,15 +154,15 @@ if (!$user_id) {
         <b>&#8377; 2040.00</b> <s>&#8377; 4990.00</s> 59% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
   </main>
 
   <button type="button" id="loadbtn">Load More</button>
   <main class="product-container" id="hide">
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/speaker_imgs/speaker7.jpg" alt="BOAT Stone 580">
       <h3>pTron</h3>
       <p>Newly Launched Fusion Hook v2 6W Bluetooth Speaker with 8 Hrs Playtime, 2.04" Neo Driver for Pristine Sound</p>
@@ -170,11 +170,11 @@ if (!$user_id) {
         <b>&#8377; 499.00</b> <s>&#8377; 1499.00</s> 59% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
-    <div class="product">
+    </form>
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/speaker_imgs/speaker8.webp" alt="BOAT Stone 580">
       <h3>amazon basics</h3>
       <p>5W Bluetooth 5.3 Speaker, Upto 36 Hrs Playtime, True Wireless Technology</p>
@@ -182,11 +182,11 @@ if (!$user_id) {
         <b>&#8377; 699.00</b> <s>&#8377; 1499.00</s> 59% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
-    <div class="product">
+    </form>
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/speaker_imgs/speaker9.webp" alt="BOAT Stone 580">
       <h3>Portronics</h3>
       <p>Apollo One 20W Wireless Bluetooth Portable Speaker with Wireless Karaoke Mic, 5 Hour Playtime, RGB LED Light,
@@ -195,10 +195,10 @@ if (!$user_id) {
         <b>&#8377; 1,199.00</b> <s>&#8377; 2499.00</s> 59% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
   </main>
 
   <footer id="footer">

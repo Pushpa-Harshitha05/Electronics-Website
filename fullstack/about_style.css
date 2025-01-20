@@ -67,6 +67,7 @@ header .profile{
   opacity: 0.82;
   margin-right: 8px; 
   cursor: pointer;
+  margin-top: 4px;
 }
 
 header .userbtns a {

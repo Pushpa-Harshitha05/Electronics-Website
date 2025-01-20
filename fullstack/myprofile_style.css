@@ -67,6 +67,7 @@ header .profile{
   opacity: 0.82;
   margin-right: 8px; 
   cursor: pointer;
+  margin-top: 4px;
 }
 
 header .userbtns a {
@@ -176,7 +177,7 @@ header{
   gap: 2.1rem;
   width: 500px;
   height: 150px;
-  border: 1px solid #ddd;
+  border: 1px solid #cfcece;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -212,7 +213,7 @@ header{
 .profilediv:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-  background-color: rgb(208, 239, 252);
+  background-color: rgb(201, 236, 251);
 }
 
 

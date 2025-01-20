@@ -50,7 +50,7 @@ if (!$user_id) {
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
           <div class="dropdown-menu" id="dropdownMenu">
-            <a href="#">My Profile</a>
+            <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
             <a href="logout.php">Logout</a>
@@ -79,7 +79,7 @@ if (!$user_id) {
   </section>
 
   <main class="product-container">
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/screencard_imgs/screen1.jpeg" alt="REALME FRONT GUARD">
       <h3>REALME</h3>
       <p>9I 5G FRONT 9H FIBER GUARD BACK PROTECTOR WITH CAMERA GLASSREALME 9I 5G FRONT</p>
@@ -87,12 +87,12 @@ if (!$user_id) {
         <b>&#8377;&nbsp; 159.00</b> INR*. In stock
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/screencard_imgs/screen2.jpeg" alt="IPAD">
       <h3>IPAD</h3>
       <p>iPad 2022 - Glass Screen Protector</p>
@@ -100,12 +100,12 @@ if (!$user_id) {
         <b>&#8377; 499.00</b> <s>&#8377; 2299.00</s> Inclusive of all taxes
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/screencard_imgs/screen3.webp" alt="CZARTECH GLASS">
       <h3>CZARTECH</h3>
       <p>Tempered Glass Guard for Apple iPhone 13 Pro Max, Apple iphone 14 plus (Pack of 2)</p>
@@ -113,14 +113,14 @@ if (!$user_id) {
         Special price <br> <b>&#8377; 474.00</b> <s>&#8377; 1,999.00</s> 76% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
   </main>
 
   <main class="product-container">
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/screencard_imgs/screen4.jpeg" alt="IPHONE GLASS">
       <h3>IPHONE</h3>
       <p>iPhone 8 - 9D Tempered Glass Screen Protector with Applicator</p>
@@ -128,12 +128,12 @@ if (!$user_id) {
         <b>&#8377; 499.00</b> <s>&#8377; 999.00</s> Inclusive of all taxes INR*
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/screencard_imgs/screen9.jpg" alt="BOAT Stone 580">
       <h3>POPIO</h3>
       <p>Tempered Glass Screen Protector Compatible For Iphone 13 / Iphone 13 Pro/Iphone 14 (Black) Edge To Edge
@@ -142,12 +142,12 @@ if (!$user_id) {
         <b>&#8377; 265.00</b> <s>&#8377; 599.00</s> 56% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/screencard_imgs/screen6.webp" alt="XTRENGTH">
       <h3>XTRENGTH</h3>
       <p>Edge To Edge Tempered Glass for Samsung Galaxy Note 10 Plus</p>
@@ -155,15 +155,15 @@ if (!$user_id) {
         <b>&#8377; 429.00</b> <s>&#8377; 1,499.00</s> 60% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
   </main>
 
   <button type="button" id="loadbtn">Load More</button>
   <main class="product-container" id="hide">
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/screencard_imgs/screen7.jpg" alt="POPIO Glass">
       <h3>POPIO</h3>
       <p>Tempered Glass Compatible For Samsung Galaxy M30 / M30S / A30 / A30S / A50 / A50S (Transparent) Full Screen
@@ -172,11 +172,11 @@ if (!$user_id) {
         <b>&#8377; 266.00</b> <s>&#8377; 599.00</s> 63% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
-    <div class="product">
+    </form>
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/screencard_imgs/screen8.jpg" alt="OpenTech">
       <h3>OpenTech</h3>
       <p>Tempered Glass Screen Protector Compatible For Samsung Galaxy M33 / F23 / M23 / A23 / M13 4G With Edge To Edge
@@ -185,12 +185,12 @@ if (!$user_id) {
         <b>&#8377; 360.00</b> <s>&#8377; 999.00</s> 64% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/screencard_imgs/screen5.jpeg" alt="GLASS FACTORY">
       <h3>GLASS FACTORY</h3>
       <p>11D TEMPERED GLASS SCREEN PROTECTOR FOR IQOO Z3 5G</p>
@@ -198,10 +198,10 @@ if (!$user_id) {
         <b>&#8377; 320.00</b> INR*. In stock
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
   </main>
 

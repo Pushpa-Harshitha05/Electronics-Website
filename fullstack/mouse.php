@@ -50,7 +50,7 @@ if (!$user_id) {
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
           <div class="dropdown-menu" id="dropdownMenu">
-            <a href="#">My Profile</a>
+            <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
             <a href="logout.php">Logout</a>
@@ -79,7 +79,7 @@ if (!$user_id) {
   </section>
 
   <main class="product-container">
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/mouse_imgs/mouse1.jpeg" alt="DELL Wireless Mouse">
       <h3>DELL</h3>
       <p>company's Full Size Wireless Mouse,High resolution 1600 DPI</p>
@@ -87,12 +87,12 @@ if (!$user_id) {
         <b>&#8377;&nbsp; 727.00</b> INR*. In stock
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
 
       <img src="images/mouse_imgs/mouse2.jpg" alt="ENTWINO Gaming Mouse">
       <h3>ENTWINO</h3>
@@ -101,12 +101,12 @@ if (!$user_id) {
         <b>&#8377;&nbsp;229.00</b> INR*. In stock
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/mouse_imgs/mouse3.webp" alt="ZEBRONICS Mouse">
       <h3>ZEBRONICS</h3>
       <p>Zeb-Jaguar Wireless Optical Mouse (2.4GHz Wireless, Black), Special price</p>
@@ -114,14 +114,14 @@ if (!$user_id) {
         <b>&#8377; 399.00</b> <s>&#8377; 1,190.00</s> 66% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
   </main>
 
   <main class="product-container">
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/mouse_imgs/mouse4.jpeg" alt="LOGITECH Wired Mouse">
       <h3>LOGITECH</h3>
       <p>Buy Logitech M90 Wired Mouse Online at<br> Best Price .</p>
@@ -129,12 +129,12 @@ if (!$user_id) {
         <b>&#8377; 385.00</b> <s>&#8377; 425.00</s> INR*. In stock
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/mouse_imgs/mouse5.png" alt="CROMA Optical Mouse">
       <h3>CROMA</h3>
       <p>Buy Croma XM5109 Rechargeable Wireless Optical Mouse (1600 DPI Adjustable)</p>
@@ -142,12 +142,12 @@ if (!$user_id) {
         <b>&#8377; 600.00</b> <s>&#8377; 725.00</s> INR*. In stock
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
 
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/mouse_imgs/mouse6.png" alt="HP Wired Mouse">
       <h3>HP</h3>
       <p>1000 Wired Optical Mouse (USB 3.0, USB 2.0, Black)</p>
@@ -155,15 +155,15 @@ if (!$user_id) {
         <b>&#8377; 329.00</b> <s>&#8377; 399.00</s> 17% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
   </main>
 
   <button type="button" id="loadbtn">Load More</button>
   <main class="product-container" id="hide">
-    <div class="product">
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/mouse_imgs/mouse7.jpg" alt="EVOFOX Gaming Mouse">
       <h3>EvoFox</h3>
       <p>Starter Series Spectre USB Wired Gaming Mouse with Upto 3600 DPI Gaming Sensor | 6 Buttons Design</p>
@@ -171,11 +171,11 @@ if (!$user_id) {
         <b>&#8377; 299.00</b> <s>&#8377; 799.00</s> 63% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
-    <div class="product">
+    </form>
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/mouse_imgs/mouse8.webp" alt="amazon basics">
       <h3>amazon basics</h3>
       <p>2.4GHz Wireless + Bluetooth 5.1 Mouse, Multi-Device Dual Mode Slim Rechargeable Silent Click Buttons</p>
@@ -183,11 +183,11 @@ if (!$user_id) {
         <b>&#8377; 549.00</b> <s>&#8377; 1099.00</s> 50% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
-    <div class="product">
+    </form>
+    <form action="add_to_cart.php" method="post" class="product">
       <img src="images/mouse_imgs/mouse9.webp" alt="BOAT Stone 580">
       <h3>ZEBRONICS</h3>
       <p>Zeb-Jaguar Wireless Mouse, 2.4GHz with USB Nano Receiver, High Precision Optical Tracking, 4 Buttons, Plug &
@@ -196,10 +196,10 @@ if (!$user_id) {
         <b>&#8377; 299.00</b> <s>&#8377; 1190.00</s> 75% off
       </p>
       <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
+        <button class="btnsubmit buynow">Buy Now</button>
+        <button class="btnsubmit addtocart">Add To Cart</button>
       </div>
-    </div>
+    </form>
   </main>
 
   <footer id="footer">

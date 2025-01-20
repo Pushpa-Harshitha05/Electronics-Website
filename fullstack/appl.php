@@ -50,7 +50,7 @@ if (!$user_id) {
             <div class="profile-container">
                <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
                <div class="dropdown-menu" id="dropdownMenu">
-                  <a href="#">My Profile</a>
+                  <a href="myprofile.php">My Profile</a>
                   <a href="#">Orders</a>
                   <a href="#">Settings</a>
                   <a href="logout.php">Logout</a>

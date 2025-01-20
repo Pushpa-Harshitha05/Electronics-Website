@@ -24,6 +24,23 @@ if (!$user_id) {
   }
 }
 
+if (isset($_POST['addtocartbtn'])) {
+
+  $product_name = $_POST['product_name'];
+  $product_image = $_POST['product_image'];
+  $product_desc = $_POST['product_desc'];
+  $product_price = $_POST['product_price'];
+
+  $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' and user_id = '$user_id'") or die('query failed');
+
+  if (mysqli_num_rows($select_cart) > 0) {
+
+  } else {
+    mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,image,description) VALUES ('$user_id','$product_name','$product_price','$product_image','$product_desc')") or die('query failed');
+  }
+
+}
+
 ?>
 
 <head>
@@ -50,7 +67,7 @@ if (!$user_id) {
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
           <div class="dropdown-menu" id="dropdownMenu">
-            <a href="#">My Profile</a>
+            <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
             <a href="logout.php">Logout</a>
@@ -78,129 +95,58 @@ if (!$user_id) {
     <h1>Pendrives</h1>
   </section>
 
-  <main class="product-container">
-    <div class="product">
-      <img src="images/pendrive_imgs/pendrive1.webp" alt="SANDISK Pendrive">
-      <h3>SANDISK</h3>
-      <p>Cruzer Blade 32GB USB 2.0 Flash Drive SDCZ50-032G-B35 (Red)</p>
-      <p>
-        <b>&#8377; 199.00</b> <s>&#8377; 230.00</s> INR*. In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
+  <?php
 
-    <div class="product">
-      <img src="images/pendrive_imgs/pendrive2.jpg" alt="Swivel Pendrive">
-      <h3>Swivel</h3>
-      <p>USB Pendrive 32 GB Ultra-thin and sleek Pen drive made with durable metal</p>
-      <p>
-        <b>&#8377; 550.00</b> INR* . In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
+  $pcount = 1;
+  $select_product = mysqli_query($conn, 'SELECT * FROM `products` WHERE product_type = "pendrive"') or die('query failed');
 
-    <div class="product">
-      <img src="images/pendrive_imgs/pendrive3.webp" alt="Consistent Pendrive">
-      <h3>Consistent</h3>
-      <p>64GB Metal Pendrive With Keychain Carabiner, 5 Years Warranty 64 GB Pen Drive (Silver)</p>
-      <p>
-        <b>&#8377; 415.00</b> <s>&#8377; 1,999.00</s> 79% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
-  </main>
+  if (mysqli_num_rows($select_product) > 0) {
+    while ($fetch_product = mysqli_fetch_assoc($select_product)) {
 
-  <main class="product-container">
-    <div class="product">
-      <img src="images/pendrive_imgs/pendrive4.webp" alt="SANDISK Pendrive">
-      <h3>SANDISK</h3>
-      <p>Ultra Dual Drive m3.0 128GB USB 3.0 (Type-A),<br> Micro USB (Type-B) Flash Drive.</p>
-      <p>
-        <b>&#8377; 909.00</b> <s>&#8377; 1,000.00</s> INR* In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
+      if (($pcount == 1) || ($pcount == 4)) {
+        $classcontainer = 'product-container';
+        echo "<main class='$classcontainer'>";
+      } else if ($pcount == 7) {
+        $classcontainer = 'product-container';
+        $idcontainer = 'hide';
+        echo '<button type="button" id="loadbtn">Load More</button>';
+        echo "<main class='$classcontainer' id='$idcontainer'>";
+      }
+      ?>
 
-    <div class="product">
-      <img src="images/pendrive_imgs/pendrive5.jpg" alt="HP Pendrive">
-      <h3>HP</h3>
-      <p>v236w USB 2.0 64GB Pen Drive, Metal, Silver</p>
-      <p>
-        <b>&#8377; 399.00</b> <s>&#8377; 725.00</s> INR* In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
+      <form action="" method="post" class="product">
+        <img src="<?php echo $fetch_product['product_image'] ?>" alt="<?php echo $fetch_product['name']; ?>">
+        <h3><?php echo $fetch_product['name']; ?></h3>
+        <p><?php echo $fetch_product['description']; ?></p>
+        <p>
+          <b><?php echo $fetch_product['price']; ?></b> <s><?php echo $fetch_product['strike']; ?></s>
+          <?php echo $fetch_product['para']; ?>
+        </p>
+        <input type="hidden" name="product_image" value="<?php echo $fetch_product['product_image'] ?>">
+        <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
+        <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
+        <input type="hidden" name="product_desc" value="<?php echo $fetch_product['description']; ?>">
+        <div class="checkoutbtns">
+          <button class="btnsubmit buynow" name="buynowbtn">Buy Now</button>
+          <button class="btnsubmit addtocart" name="addtocartbtn">Add To Cart</button>
+        </div>
+      </form>
 
-    <div class="product">
-      <img src="images/pendrive_imgs/pendrive6.webp" alt="SanDisk Pendrive">
-      <h3>SanDisk</h3>
-      <p>SDDDC3-064G-I35NB 64 GB OTG Drive (Blue, Type A to Type C)</p>
-      <p>
-        Special price<br><b>&#8377; 659.00</b> <s>&#8377; 1,600.00</s> 58% off INR*
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
-  </main>
 
-  <button type="button" id="loadbtn">Load More</button>
-  <main class="product-container" id="hide">
-    <div class="product">
-      <img src="images/pendrive_imgs/pendrive7.jpg" alt="Amazon Basics keyboard">
-      <h3>Amazon Basics</h3>
-      <p>64 GB Flash Drive | USB 3.0 | Upto 150 MB/s | Silver</p>
-      <p>
-        <b>&#8377; 469.00</b> <s>&#8377; 999.00</s> 53% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
-    <div class="product">
-      <img src="images/pendrive_imgs/pendrive8.webp" alt="HP">
-      <h3>HP</h3>
-      <p>USB 2.0 Flash Drive 128GB v150w-Blue</p>
-      <p>
-        <b>&#8377; 569.00</b> <s>&#8377; 1900.00</s> 70% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
 
-    <div class="product">
-      <img src="images/pendrive_imgs/pendrive9.webp" alt="Geonix Pendrive">
-      <h3>Geonix</h3>
-      <p>8GB Pendrive I Silver I USB 2.0 I Keyring Design I Lightweight I Variant 8GB I 5 Years Warranty</p>
-      <p>
-        <b>&#8377; 319.00</b> <s>&#8377; 799.00</s> 63% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
-
-  </main>
+      <?php
+      if (($pcount % 3) == 0) {
+        echo "</main>";
+      }
+      $pcount++;
+    }
+    if ((($pcount - 1) % 3) != 0) {
+      echo "</main>";
+    }
+  } else {
+    echo '<p>No Products Found</p>';
+  }
+  ?>
 
   <footer id="footer">
     <div class="footer-content">

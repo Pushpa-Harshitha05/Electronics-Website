@@ -24,6 +24,23 @@ if (!$user_id) {
   }
 }
 
+if (isset($_POST['addtocartbtn'])) {
+
+  $product_name = $_POST['product_name'];
+  $product_image = $_POST['product_image'];
+  $product_desc = $_POST['product_desc'];
+  $product_price = $_POST['product_price'];
+
+  $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' and user_id = '$user_id'") or die('query failed');
+
+  if (mysqli_num_rows($select_cart) > 0) {
+
+  } else {
+    mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,image,description) VALUES ('$user_id','$product_name','$product_price','$product_image','$product_desc')") or die('query failed');
+  }
+
+}
+
 ?>
 
 <head>
@@ -50,7 +67,7 @@ if (!$user_id) {
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
           <div class="dropdown-menu" id="dropdownMenu">
-            <a href="#">My Profile</a>
+            <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
             <a href="logout.php">Logout</a>
@@ -78,131 +95,58 @@ if (!$user_id) {
     <h1>Keyboards</h1>
   </section>
 
-  <main class="product-container">
-    <div class="product">
-      <img src="images/keyboard_imgs/keyboard1.webp" alt="EXQUISITE Keyboard">
-      <h3>EXQUISITE</h3>
-      <p>Wireless Keyboard Combo Warranty: 3 year</p>
-      <p>
-        <b>&#8377; 1,299.00</b> <s>&#8377; 1,999.00</s> INR*. In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
+  <?php
 
-    <div class="product">
-      <img src="images/keyboard_imgs/keyboard2.webp" alt="FINGERS Keyboard">
-      <h3>FINGERS</h3>
-      <p>Velvet Combo C4 Warranty: 3 year</p>
-      <p>
-        <b>&#8377; 845.00</b> <s>&#8377; 1,999.00</s> Inclusive of all taxes INR* . In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
+  $pcount = 1;
+  $select_product = mysqli_query($conn, 'SELECT * FROM `products` WHERE product_type = "keyboard"') or die('query failed');
 
-    <div class="product">
-      <img src="images/keyboard_imgs/keyboard3.webp" alt="Portronics keyboard">
-      <h3>Portronics</h3>
-      <p>Key5 Combo POR-1569 Wireless Laptop Keyboard (Grey)</p>
-      <p>
-        <b>&#8377; 899.00</b> <s>&#8377; 1,999.00</s> 55% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
-  </main>
+  if (mysqli_num_rows($select_product) > 0) {
+    while ($fetch_product = mysqli_fetch_assoc($select_product)) {
 
-  <main class="product-container">
-    <div class="product">
-      <img src="images/keyboard_imgs/keyboard4.jpg" alt="AMAZON keyboard">
-      <h3>AMAZON</h3>
-      <p>Basics Wired Keyboard for Windows,USB 2.0 Interface, for PC, Computer, Laptop, Mac (Black)</p>
-      <p>
-        Rs.<b>&#8377; 499.00</b> Inclusive of all taxes INR* In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
+      if (($pcount == 1) || ($pcount == 4)) {
+        $classcontainer = 'product-container';
+        echo "<main class='$classcontainer'>";
+      } else if ($pcount == 7) {
+        $classcontainer = 'product-container';
+        $idcontainer = 'hide1';
+        echo '<button type="button" id="loadbtn1">Load More</button>';
+        echo "<main class='$classcontainer' id='$idcontainer'>";
+      }
+      ?>
 
-    <div class="product">
-      <img src="images/keyboard_imgs/keyboard5.jpg" alt="RAPOO keyboard">
-      <h3>RAPOO</h3>
-      <p>V500 Pro Mechanical Gaming Keyboard Cyan Blue</p>
-      <p>
-        <b>&#8377; 799.00</b> INR* In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
+      <form action="" method="post" class="product">
+        <img src="<?php echo $fetch_product['product_image'] ?>" alt="<?php echo $fetch_product['name']; ?>">
+        <h3><?php echo $fetch_product['name']; ?></h3>
+        <p><?php echo $fetch_product['description']; ?></p>
+        <p>
+          <b><?php echo $fetch_product['price']; ?></b> <s><?php echo $fetch_product['strike']; ?></s>
+          <?php echo $fetch_product['para']; ?>
+        </p>
+        <input type="hidden" name="product_image" value="<?php echo $fetch_product['product_image'] ?>">
+        <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
+        <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
+        <input type="hidden" name="product_desc" value="<?php echo $fetch_product['description']; ?>">
+        <div class="checkoutbtns">
+          <button class="btnsubmit buynow" name="buynowbtn">Buy Now</button>
+          <button class="btnsubmit addtocart" name="addtocartbtn">Add To Cart</button>
+        </div>
+      </form>
 
-    <div class="product">
-      <img src="images/keyboard_imgs/keyboard6.webp" alt="Portronics keyboard">
-      <h3>Portronics</h3>
-      <p>Bubble Max Sleek Wireless, Silent Keys, Auto Sleep Mode, 2.4Ghz + Wireless Laptop Keyboard (Green)</p>
-      <p>
-        <b>&#8377; 753.00</b> <s>&#8377; 1,299.00</s> 42% off INR*
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
-  </main>
 
-  <button type="button" id="loadbtn">Load More</button>
-  <main class="product-container" id="hide">
-    <div class="product">
-      <img src="images/keyboard_imgs/keyboard7.webp" alt="HP keyboard">
-      <h3>HP</h3>
-      <p>K100 Wired Keyboard, Quick, Comfy and Accurate, USB Plug & Play Setup,LED Indicators</p>
-      <p>
-        <b>&#8377; 599.00</b> <s>&#8377; 1250.00</s> 52% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
-    <div class="product">
-      <img src="images/keyboard_imgs/keyboard8.webp" alt="ZEBRONICS">
-      <h3>ZEBRONICS</h3>
-      <p>K36 Wired USB Keyboard with 106 Keys, Slim Design, Smartphone Holder, Retractable Stand, 1.2m Cable Length,
-        Rupee Key</p>
-      <p>
-        <b>&#8377; 268.00</b> <s>&#8377; 499.00</s> 46% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
 
-    <div class="product">
-      <img src="images/keyboard_imgs/keyboard9.webp" alt="ZEBRONICS">
-      <h3>ZEBRONICS</h3>
-      <p>Trion USB Gaming Keyboard & Mouse Gaming Combo, 104 Keys Backlit, Translucent Material, Multi Color LED, Multi
-        DPI Modes</p>
-      <p>
-        <b>&#8377; 1,199.00</b> <s>&#8377; 598.00</s> INR*. In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit">Buy Now</button>
-        <button class="btnsubmit">Add To Cart</button>
-      </div>
-    </div>
-
-  </main>
+      <?php
+      if (($pcount % 3) == 0) {
+        echo "</main>";
+      }
+      $pcount++;
+    }
+    if ((($pcount - 1) % 3) != 0) {
+      echo "</main>";
+    }
+  } else {
+    echo '<p style="text-align:center;margin:54px 0px;font-size:1.2rem">No Products Found</p>';
+  }
+  ?>
 
   <footer id="footer">
     <div class="footer-content">

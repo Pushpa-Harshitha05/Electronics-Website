@@ -53,7 +53,7 @@ if (!$user_id) {
             <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
-            <a href="logout.php">Logout</a>
+            <a href="logout.php" id="logoutuser">Logout</a>
           </div>
         </div>
       </div>
