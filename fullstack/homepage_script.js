@@ -20,6 +20,7 @@ profileImg.addEventListener('click', () => {
 
 
 document.addEventListener('click', (event) => {
+   // (!event.target.closest('.profile-container')) - Returns true if the clicked element is not inside the .profile-container. This means the user clicked outside the container.
    if (!event.target.closest('.profile-container')) {
       dropdownMenu.style.display = 'none';
    }

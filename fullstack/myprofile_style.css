@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,15 +10,15 @@ html{
 
 body {
   font-family: 'Josefin Sans', sans-serif;
-  margin: 0;
-  background: rgb(255, 255, 255);
+  background-color: rgb(238, 245, 248);
+  color: #333;
 }
 
 header {
   background: linear-gradient(-90deg, skyblue, white, skyblue);
   padding: 14px 20px;
   color: darkblue;
-  width: 98.9vw;
+  width: 100vw;
   height: 100.5px;
   display: flex;
   justify-content: center; 
@@ -129,135 +129,92 @@ header{
   z-index: 1;
 }
 
-section {
-  text-align: center;
-  padding: 20px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  margin-top: 80px;
-}
-
-section h1 {
-  margin: 0;
-  font-size: 2.2rem;
-  color: darkblue;
-  text-transform: uppercase;
-}
-
-.product-container {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  padding: 20px;
-  gap: 80px;
-  flex-wrap: wrap;
-}
-
-.product {
+.profile-container {
   position: relative;
-  width: 20%;
-  max-width: 300px;
-  padding: 20px;
-  background: #ffffff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  display: inline-block;
 }
 
-.product:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-}
-
-.product img {
-  width: 100%;
-  height: auto;
-  max-height: 330px;
-  border-radius: 5px;
-  margin-bottom: 15px;
-}
-
-.product h3 {
-  font-size: 1.2em;
-  margin: 10px 0;
-}
-
-.product p {
-  font-size: 0.9em;
-  color: #656464;
-  margin: 20px 0;
-  line-height: 1.1rem;
-}
-
-.product b {
-  font-size: 1.5rem;
-  color: #000;
-}
-
-.product s {
-  color: #777;
-}
-
-.product b:first-child, .product p:nth-child(4), .product s{
-  padding-bottom: 30px;
-}
-
-.checkoutbtns{
-  width: 85%;
-  position: absolute;
-  bottom: 0px;
-  padding-bottom: 10px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.btnsubmit {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px 15px;
-  font-size: 0.9em;
-  background-color: rgb(92, 167, 213);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #fff;
-  transition: background-color 0.3s;
-}
-
-.btnsubmit:hover {
-  background-color: rgb(59, 106, 136);
-}
-
-#hide{
+.dropdown-menu {
   display: none;
-  justify-content: center;
-  align-items: stretch;
-  padding: 20px;
-  gap: 80px;
-  flex-wrap: wrap;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 150px;
+  z-index: 10;
 }
 
-#loadbtn{
-  display: flex;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  padding: 10px 25px;
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
   font-size: 1rem;
-  font-weight: 600;
-  background-color: rgb(92, 167, 213);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #fff;
-  transition: background-color 0.3s;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-#loadbtn:hover{
-  background-color: rgb(59,106,136);
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
 }
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 18px;
+  padding: 20px;
+  margin: 50px;
+  margin-top: 100px;
+}
+
+.profilediv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2.1rem;
+  width: 500px;
+  height: 150px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.4s, box-shadow 0.3s, background-color 0.5s;
+  margin: 20px;
+}
+
+.profilediv img {
+  width: 62px;
+  height: 62px;
+  margin-bottom: 10px;
+}
+
+.profilediv .data{
+  width: 55%;
+}
+
+.profilediv span {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  width: 35%;
+}
+
+.profilediv .data p{
+  font-size: 0.9rem;
+  color: rgb(141, 141, 141);
+  margin-top: 6px;
+}
+
+.profilediv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  background-color: rgb(208, 239, 252);
+}
+
 
 footer {
   background: linear-gradient(-90deg, skyblue, white, skyblue); 
@@ -332,32 +289,4 @@ footer .details p{
 
 .footer-bottom p {
   margin: 0;
-}
-
-.profile-container {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  width: 150px;
-  z-index: 10;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px 15px;
-  text-decoration: none;
-  color: #333;
-}
-
-.dropdown-menu a:hover {
-  background-color: #f0f0f0;
 }
