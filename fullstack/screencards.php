@@ -24,6 +24,49 @@ if (!$user_id) {
   }
 }
 
+$usercart = 0;
+
+if (isset($_POST['addtocartbtn'])) {
+
+  $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+  if ($user_id) {
+    $product_name = $_POST['product_name'];
+    $product_image = $_POST['product_image'];
+    $product_desc = $_POST['product_desc'];
+    $product_price = $_POST['product_price'];
+
+    $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' and user_id = '$user_id'") or die('query failed');
+
+    if (mysqli_num_rows($select_cart) > 0) {
+
+    } else {
+      if ($user_id != 0) {
+
+        $product_desc_esc = mysqli_real_escape_string($conn, $product_desc);
+
+        mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,image,description) VALUES ('$user_id','$product_name','$product_price','$product_image','$product_desc_esc')") or die('query failed');
+
+        $res = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
+        if ($row = mysqli_fetch_assoc($res)) {
+          $usercart = $row['user_cart'];
+
+          $usercart += 1;
+
+          mysqli_query($conn, "UPDATE `details` SET user_cart = '$usercart' WHERE id = '$user_id'");
+
+        }
+
+      } else {
+        header("Location:loginform.html");
+      }
+    }
+  } else {
+    header("Location:loginform.html");
+  }
+
+}
+
 ?>
 
 <head>
@@ -45,7 +88,7 @@ if (!$user_id) {
       <div class="profile">
         <div class="cartitems">
           <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
-          <span id="cartcount">0</span>
+          <span id="cartcount"><?php echo $usercart ?></span>
         </div>
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
@@ -78,132 +121,58 @@ if (!$user_id) {
     <h1>SCREEN CARDS</h1>
   </section>
 
-  <main class="product-container">
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/screencard_imgs/screen1.jpeg" alt="REALME FRONT GUARD">
-      <h3>REALME</h3>
-      <p>9I 5G FRONT 9H FIBER GUARD BACK PROTECTOR WITH CAMERA GLASSREALME 9I 5G FRONT</p>
-      <p>
-        <b>&#8377;&nbsp; 159.00</b> INR*. In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
+  <?php
 
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/screencard_imgs/screen2.jpeg" alt="IPAD">
-      <h3>IPAD</h3>
-      <p>iPad 2022 - Glass Screen Protector</p>
-      <p>
-        <b>&#8377; 499.00</b> <s>&#8377; 2299.00</s> Inclusive of all taxes
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
+  $pcount = 1;
+  $select_product = mysqli_query($conn, 'SELECT * FROM `products` WHERE product_type = "screencard"') or die('query failed');
 
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/screencard_imgs/screen3.webp" alt="CZARTECH GLASS">
-      <h3>CZARTECH</h3>
-      <p>Tempered Glass Guard for Apple iPhone 13 Pro Max, Apple iphone 14 plus (Pack of 2)</p>
-      <p>
-        Special price <br> <b>&#8377; 474.00</b> <s>&#8377; 1,999.00</s> 76% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
-  </main>
+  if (mysqli_num_rows($select_product) > 0) {
+    while ($fetch_product = mysqli_fetch_assoc($select_product)) {
 
-  <main class="product-container">
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/screencard_imgs/screen4.jpeg" alt="IPHONE GLASS">
-      <h3>IPHONE</h3>
-      <p>iPhone 8 - 9D Tempered Glass Screen Protector with Applicator</p>
-      <p>
-        <b>&#8377; 499.00</b> <s>&#8377; 999.00</s> Inclusive of all taxes INR*
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
+      if (($pcount == 1) || ($pcount == 4)) {
+        $classcontainer = 'product-container';
+        echo "<main class='$classcontainer'>";
+      } else if ($pcount == 7) {
+        $classcontainer = 'product-container';
+        $idcontainer = 'hide';
+        echo '<button type="button" id="loadbtn">Load More</button>';
+        echo "<main class='$classcontainer' id='$idcontainer'>";
+      }
+      ?>
 
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/screencard_imgs/screen9.jpg" alt="BOAT Stone 580">
-      <h3>POPIO</h3>
-      <p>Tempered Glass Screen Protector Compatible For Iphone 13 / Iphone 13 Pro/Iphone 14 (Black) Edge To Edge
-        Coverage</p>
-      <p>
-        <b>&#8377; 265.00</b> <s>&#8377; 599.00</s> 56% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
+      <form action="" method="post" class="product">
+        <img src="<?php echo $fetch_product['product_image'] ?>" alt="<?php echo $fetch_product['name']; ?>">
+        <h3><?php echo $fetch_product['name']; ?></h3>
+        <p><?php echo $fetch_product['description']; ?></p>
+        <p>
+          <b><?php echo $fetch_product['price']; ?></b> <s><?php echo $fetch_product['strike']; ?></s>
+          <?php echo $fetch_product['para']; ?>
+        </p>
+        <input type="hidden" name="product_image" value="<?php echo $fetch_product['product_image'] ?>">
+        <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
+        <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
+        <input type="hidden" name="product_desc" value="<?php echo $fetch_product['description']; ?>">
+        <div class="checkoutbtns">
+          <button class="btnsubmit buynow" name="buynowbtn">Buy Now</button>
+          <button class="btnsubmit addtocart" name="addtocartbtn">Add To Cart</button>
+        </div>
+      </form>
 
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/screencard_imgs/screen6.webp" alt="XTRENGTH">
-      <h3>XTRENGTH</h3>
-      <p>Edge To Edge Tempered Glass for Samsung Galaxy Note 10 Plus</p>
-      <p>
-        <b>&#8377; 429.00</b> <s>&#8377; 1,499.00</s> 60% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
-  </main>
 
-  <button type="button" id="loadbtn">Load More</button>
-  <main class="product-container" id="hide">
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/screencard_imgs/screen7.jpg" alt="POPIO Glass">
-      <h3>POPIO</h3>
-      <p>Tempered Glass Compatible For Samsung Galaxy M30 / M30S / A30 / A30S / A50 / A50S (Transparent) Full Screen
-        Coverage</p>
-      <p>
-        <b>&#8377; 266.00</b> <s>&#8377; 599.00</s> 63% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/screencard_imgs/screen8.jpg" alt="OpenTech">
-      <h3>OpenTech</h3>
-      <p>Tempered Glass Screen Protector Compatible For Samsung Galaxy M33 / F23 / M23 / A23 / M13 4G With Edge To Edge
-        Coverage</p>
-      <p>
-        <b>&#8377; 360.00</b> <s>&#8377; 999.00</s> 64% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
 
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/screencard_imgs/screen5.jpeg" alt="GLASS FACTORY">
-      <h3>GLASS FACTORY</h3>
-      <p>11D TEMPERED GLASS SCREEN PROTECTOR FOR IQOO Z3 5G</p>
-      <p>
-        <b>&#8377; 320.00</b> INR*. In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
-
-  </main>
+      <?php
+      if (($pcount % 3) == 0) {
+        echo "</main>";
+      }
+      $pcount++;
+    }
+    if ((($pcount - 1) % 3) != 0) {
+      echo "</main>";
+    }
+  } else {
+    echo '<p align="center" style="font-size:1.2rem;margin:65px">No Products Found</p>';
+  }
+  ?>
 
   <footer id="footer">
     <div class="footer-content">

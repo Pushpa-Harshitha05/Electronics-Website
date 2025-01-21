@@ -26,17 +26,41 @@ if (!$user_id) {
 
 if (isset($_POST['addtocartbtn'])) {
 
-  $product_name = $_POST['product_name'];
-  $product_image = $_POST['product_image'];
-  $product_desc = $_POST['product_desc'];
-  $product_price = $_POST['product_price'];
+  $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
-  $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' and user_id = '$user_id'") or die('query failed');
+  if ($user_id) {
+    $product_name = $_POST['product_name'];
+    $product_image = $_POST['product_image'];
+    $product_desc = $_POST['product_desc'];
+    $product_price = $_POST['product_price'];
 
-  if (mysqli_num_rows($select_cart) > 0) {
+    $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' and user_id = '$user_id'") or die('query failed');
 
+    if (mysqli_num_rows($select_cart) > 0) {
+
+    } else {
+      if ($user_id != 0) {
+
+        $product_desc_esc = mysqli_real_escape_string($conn, $product_desc);
+
+        mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,image,description) VALUES ('$user_id','$product_name','$product_price','$product_image','$product_desc_esc')") or die('query failed');
+
+        $res = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
+        if ($row = mysqli_fetch_assoc($res)) {
+          $usercart = $row['user_cart'];
+
+          $usercart += 1;
+
+          mysqli_query($conn, "UPDATE `details` SET user_cart = '$usercart' WHERE id = '$user_id'");
+
+        }
+
+      } else {
+        header("Location:loginform.html");
+      }
+    }
   } else {
-    mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,image,description) VALUES ('$user_id','$product_name','$product_price','$product_image','$product_desc')") or die('query failed');
+    header("Location:loginform.html");
   }
 
 }
@@ -108,8 +132,8 @@ if (isset($_POST['addtocartbtn'])) {
         echo "<main class='$classcontainer'>";
       } else if ($pcount == 7) {
         $classcontainer = 'product-container';
-        $idcontainer = 'hide1';
-        echo '<button type="button" id="loadbtn1">Load More</button>';
+        $idcontainer = 'hide';
+        echo '<button type="button" id="loadbtn">Load More</button>';
         echo "<main class='$classcontainer' id='$idcontainer'>";
       }
       ?>
@@ -144,7 +168,7 @@ if (isset($_POST['addtocartbtn'])) {
       echo "</main>";
     }
   } else {
-    echo '<p style="text-align:center;margin:54px 0px;font-size:1.2rem">No Products Found</p>';
+    echo '<p align="center" style="font-size:1.2rem;margin:65px">No Products Found</p>';
   }
   ?>
 

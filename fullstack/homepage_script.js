@@ -1,20 +1,23 @@
 function search(){
   let a=document.getElementById('select').value.toLowerCase();
   if(a != ''){
-    window.location.href = a+'.html';
+    window.location.href = a+'.php';
   }
 }
 
 
-const profileImg = document.getElementById('profileimg');
-const dropdownMenu = document.getElementById('dropdownMenu');
+document.addEventListener('DOMContentLoaded', () => {
+   const profileImg = document.getElementById('profileimg');
+   const dropdownMenu = document.getElementById('dropdownMenu');
 
-
-profileImg.addEventListener('click', () => {
-   if (dropdownMenu.style.display === 'block') {
-      dropdownMenu.style.display = 'none';
-   } else {
-      dropdownMenu.style.display = 'block';
+   if(profileImg && dropdownMenu){
+      profileImg.addEventListener('click', () => {
+         if (dropdownMenu.style.display === 'block') {
+            dropdownMenu.style.display = 'none';
+         } else {
+            dropdownMenu.style.display = 'block';
+         }
+      });
    }
 });
 

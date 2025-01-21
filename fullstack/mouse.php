@@ -24,6 +24,49 @@ if (!$user_id) {
   }
 }
 
+$usercart = 0;
+
+if (isset($_POST['addtocartbtn'])) {
+
+  $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+  if ($user_id) {
+    $product_name = $_POST['product_name'];
+    $product_image = $_POST['product_image'];
+    $product_desc = $_POST['product_desc'];
+    $product_price = $_POST['product_price'];
+
+    $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' and user_id = '$user_id'") or die('query failed');
+
+    if (mysqli_num_rows($select_cart) > 0) {
+
+    } else {
+      if ($user_id != 0) {
+
+        $product_desc_esc = mysqli_real_escape_string($conn, $product_desc);
+
+        mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,image,description) VALUES ('$user_id','$product_name','$product_price','$product_image','$product_desc_esc')") or die('query failed');
+
+        $res = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
+        if ($row = mysqli_fetch_assoc($res)) {
+          $usercart = $row['user_cart'];
+
+          $usercart += 1;
+
+          mysqli_query($conn, "UPDATE `details` SET user_cart = '$usercart' WHERE id = '$user_id'");
+
+        }
+
+      } else {
+        header("Location:loginform.html");
+      }
+    }
+  } else {
+    header("Location:loginform.html");
+  }
+
+}
+
 ?>
 
 <head>
@@ -78,129 +121,58 @@ if (!$user_id) {
     <h1>Mouse Appliances</h1>
   </section>
 
-  <main class="product-container">
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/mouse_imgs/mouse1.jpeg" alt="DELL Wireless Mouse">
-      <h3>DELL</h3>
-      <p>company's Full Size Wireless Mouse,High resolution 1600 DPI</p>
-      <p>
-        <b>&#8377;&nbsp; 727.00</b> INR*. In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
+  <?php
 
-    <form action="add_to_cart.php" method="post" class="product">
+  $pcount = 1;
+  $select_product = mysqli_query($conn, 'SELECT * FROM `products` WHERE product_type = "mouse"') or die('query failed');
 
-      <img src="images/mouse_imgs/mouse2.jpg" alt="ENTWINO Gaming Mouse">
-      <h3>ENTWINO</h3>
-      <p>USB Wired Gaming Mouse D1 ,LED Backlight up to 3200 DPI, Ergonomic Design for Laptop</p>
-      <p>
-        <b>&#8377;&nbsp;229.00</b> INR*. In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
+  if (mysqli_num_rows($select_product) > 0) {
+    while ($fetch_product = mysqli_fetch_assoc($select_product)) {
 
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/mouse_imgs/mouse3.webp" alt="ZEBRONICS Mouse">
-      <h3>ZEBRONICS</h3>
-      <p>Zeb-Jaguar Wireless Optical Mouse (2.4GHz Wireless, Black), Special price</p>
-      <p>
-        <b>&#8377; 399.00</b> <s>&#8377; 1,190.00</s> 66% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
-  </main>
+      if (($pcount == 1) || ($pcount == 4)) {
+        $classcontainer = 'product-container';
+        echo "<main class='$classcontainer'>";
+      } else if ($pcount == 7) {
+        $classcontainer = 'product-container';
+        $idcontainer = 'hide';
+        echo '<button type="button" id="loadbtn">Load More</button>';
+        echo "<main class='$classcontainer' id='$idcontainer'>";
+      }
+      ?>
 
-  <main class="product-container">
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/mouse_imgs/mouse4.jpeg" alt="LOGITECH Wired Mouse">
-      <h3>LOGITECH</h3>
-      <p>Buy Logitech M90 Wired Mouse Online at<br> Best Price .</p>
-      <p>
-        <b>&#8377; 385.00</b> <s>&#8377; 425.00</s> INR*. In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
+      <form action="" method="post" class="product">
+        <img src="<?php echo $fetch_product['product_image'] ?>" alt="<?php echo $fetch_product['name']; ?>">
+        <h3><?php echo $fetch_product['name']; ?></h3>
+        <p><?php echo $fetch_product['description']; ?></p>
+        <p>
+          <b><?php echo $fetch_product['price']; ?></b> <s><?php echo $fetch_product['strike']; ?></s>
+          <?php echo $fetch_product['para']; ?>
+        </p>
+        <input type="hidden" name="product_image" value="<?php echo $fetch_product['product_image'] ?>">
+        <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
+        <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
+        <input type="hidden" name="product_desc" value="<?php echo $fetch_product['description']; ?>">
+        <div class="checkoutbtns">
+          <button class="btnsubmit buynow" name="buynowbtn">Buy Now</button>
+          <button class="btnsubmit addtocart" name="addtocartbtn">Add To Cart</button>
+        </div>
+      </form>
 
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/mouse_imgs/mouse5.png" alt="CROMA Optical Mouse">
-      <h3>CROMA</h3>
-      <p>Buy Croma XM5109 Rechargeable Wireless Optical Mouse (1600 DPI Adjustable)</p>
-      <p>
-        <b>&#8377; 600.00</b> <s>&#8377; 725.00</s> INR*. In stock
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
 
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/mouse_imgs/mouse6.png" alt="HP Wired Mouse">
-      <h3>HP</h3>
-      <p>1000 Wired Optical Mouse (USB 3.0, USB 2.0, Black)</p>
-      <p>
-        <b>&#8377; 329.00</b> <s>&#8377; 399.00</s> 17% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
-  </main>
 
-  <button type="button" id="loadbtn">Load More</button>
-  <main class="product-container" id="hide">
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/mouse_imgs/mouse7.jpg" alt="EVOFOX Gaming Mouse">
-      <h3>EvoFox</h3>
-      <p>Starter Series Spectre USB Wired Gaming Mouse with Upto 3600 DPI Gaming Sensor | 6 Buttons Design</p>
-      <p>
-        <b>&#8377; 299.00</b> <s>&#8377; 799.00</s> 63% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/mouse_imgs/mouse8.webp" alt="amazon basics">
-      <h3>amazon basics</h3>
-      <p>2.4GHz Wireless + Bluetooth 5.1 Mouse, Multi-Device Dual Mode Slim Rechargeable Silent Click Buttons</p>
-      <p>
-        <b>&#8377; 549.00</b> <s>&#8377; 1099.00</s> 50% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
-    <form action="add_to_cart.php" method="post" class="product">
-      <img src="images/mouse_imgs/mouse9.webp" alt="BOAT Stone 580">
-      <h3>ZEBRONICS</h3>
-      <p>Zeb-Jaguar Wireless Mouse, 2.4GHz with USB Nano Receiver, High Precision Optical Tracking, 4 Buttons, Plug &
-        Play</p>
-      <p>
-        <b>&#8377; 299.00</b> <s>&#8377; 1190.00</s> 75% off
-      </p>
-      <div class="checkoutbtns">
-        <button class="btnsubmit buynow">Buy Now</button>
-        <button class="btnsubmit addtocart">Add To Cart</button>
-      </div>
-    </form>
-  </main>
+      <?php
+      if (($pcount % 3) == 0) {
+        echo "</main>";
+      }
+      $pcount++;
+    }
+    if ((($pcount - 1) % 3) != 0) {
+      echo "</main>";
+    }
+  } else {
+    echo '<p align="center" style="font-size:1.2rem;margin:65px">No Products Found</p>';
+  }
+  ?>
 
   <footer id="footer">
     <div class="footer-content">
@@ -220,7 +192,7 @@ if (!$user_id) {
       <p>&copy; 2025 Guru Mobile Accessories & Electronics. All Rights Reserved.</p>
     </div>
   </footer>
-  <script src="loadmore_script.js"></script>
-</body>
+  <script src="loadmore_script.js"></>
+</body >
 
-</html>
+</html >
