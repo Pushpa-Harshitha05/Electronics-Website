@@ -46,7 +46,15 @@ if (!$user_id) {
          <div class="profile">
             <div class="cartitems">
                <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
-               <span id="cartcount">0</span>
+               <span id="cartcount">
+                  <?php
+                  $cartres = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
+                  $rowcount = mysqli_fetch_assoc($cartres);
+                  if ($rowcount) {
+                     echo $rowcount['user_cart'];
+                  }
+                  ?>
+               </span>
             </div>
             <div class="profile-container">
                <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
