@@ -44,14 +44,18 @@ if (!$user_id) {
       <?php if ($user_id && $fetch_user): ?>
          <div class="profile">
             <div class="cartitems">
-               <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
-               <span id="cartcount"><?php
-               $cartres = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
-               $rowcount = mysqli_fetch_assoc($cartres);
-               if ($rowcount) {
-                  echo $rowcount['user_cart'];
-               }
-               ?></span>
+               <a href="shopping_cart.php" class="cartlink">
+                  <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
+                  <span id="cartcount">
+                     <?php
+                     $cartres = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
+                     $rowcount = mysqli_fetch_assoc($cartres);
+                     if ($rowcount) {
+                        echo $rowcount['user_cart'];
+                     }
+                     ?>
+                  </span>
+               </a>
             </div>
             <div class="profile-container">
                <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
@@ -82,14 +86,14 @@ if (!$user_id) {
    </div>
    <div class="total">
       <h3 align="center">Welcome to Guru Mobile Accessories &amp; Electronics</h3>
-      <p align="center"><input type="search" id="select" list="items" placeholder="search for products">
-         <datalist id="items">
-            <option>mouse</option>
-            <option>keyboards</option>
-            <option>screencards</option>
-            <option>speakers</option>
-            <option>pendrives</option>
-         </datalist>
+      <p align="center"><select id="mySelect" onchange="changeoption()">
+            <option value="" style="display:none">select a product</option>
+            <option value="mouse">Mouse</option>
+            <option value="keyboards">Keyboards</option>
+            <option value="screencards">Screencards</option>
+            <option value="speakers">Speakers</option>
+            <option value="pendrives">Pendrives</option>
+         </select>
          <input type="image" src="images/homepage_imgs/search_img.png" id="btn" onclick="search()">
       </p>
       <br><br>

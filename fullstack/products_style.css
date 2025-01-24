@@ -54,6 +54,20 @@ header .profile{
   gap: 25px;
 }
 
+.cartlink{
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: darkblue;
+}
+
+.cartlink:hover{
+  background-color: transparent;
+  transform: scale(1.05);
+}
+
 #cart{
   width: 32px;
   height: 32px;

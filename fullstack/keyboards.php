@@ -9,6 +9,7 @@ session_start();
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
 if (!$user_id) {
+  header("Location:loginform.html");
 
 } else {
   $select_user = mysqli_query($conn, "SELECT * FROM `details` WHERE id='$user_id'");
@@ -45,13 +46,18 @@ if (isset($_POST['addtocartbtn'])) {
 
         mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,image,description) VALUES ('$user_id','$product_name','$product_price','$product_image','$product_desc_esc')") or die('query failed');
 
-        $res = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
+        $res = mysqli_query($conn, "SELECT user_cart,cost FROM `details` WHERE id = '$user_id'");
         if ($row = mysqli_fetch_assoc($res)) {
           $usercart = $row['user_cart'];
+          $cost = $row['cost'];
+          // $cost = (float) $cost;
+          $number = preg_replace('/[^0-9.]/', '', $product_price);
+          $number = (float) $number;
 
           $usercart += 1;
+          $cost += $number;
 
-          mysqli_query($conn, "UPDATE `details` SET user_cart = '$usercart' WHERE id = '$user_id'");
+          mysqli_query($conn, "UPDATE `details` SET user_cart = '$usercart', cost = '$cost' WHERE id = '$user_id'");
 
         }
 
@@ -85,16 +91,18 @@ if (isset($_POST['addtocartbtn'])) {
     <?php if ($user_id && $fetch_user): ?>
       <div class="profile">
         <div class="cartitems">
-          <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
-          <span id="cartcount">
-            <?php
-            $cartres = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
-            $rowcount = mysqli_fetch_assoc($cartres);
-            if ($rowcount) {
-              echo $rowcount['user_cart'];
-            }
-            ?>
-          </span>
+          <a href="shopping_cart.php" class="cartlink">
+            <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
+            <span id="cartcount">
+              <?php
+              $cartres = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
+              $rowcount = mysqli_fetch_assoc($cartres);
+              if ($rowcount) {
+                echo $rowcount['user_cart'];
+              }
+              ?>
+            </span>
+          </a>
         </div>
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">

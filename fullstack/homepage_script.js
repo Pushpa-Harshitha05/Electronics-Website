@@ -1,8 +1,18 @@
 function search(){
-  let a=document.getElementById('select').value.toLowerCase();
+  let a=document.getElementById('mySelect').value.toLowerCase();
   if(a != ''){
     window.location.href = a+'.php';
   }
+}
+
+
+function changeoption(){
+   setTimeout(() => {
+      let a=document.getElementById('mySelect').value.toLowerCase();
+      if(a != ''){
+         window.location.href = a+'.php';
+      }
+   }, 800);
 }
 
 
