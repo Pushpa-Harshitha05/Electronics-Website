@@ -67,6 +67,14 @@ if (!$user_id) {
                </div>
             </div>
          </div>
+      <?php elseif ($user_id):
+         $user_id = null;
+         ?>
+         <div class="userbtns">
+            <a href="sign.html">Sign up</a>
+            <span>or</span>
+            <a href="loginform.html">Login</a>
+         </div>
       <?php else: ?>
          <div class="userbtns">
             <a href="sign.html">Sign up</a>

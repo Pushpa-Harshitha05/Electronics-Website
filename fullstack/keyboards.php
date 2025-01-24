@@ -9,7 +9,6 @@ session_start();
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
 if (!$user_id) {
-  header("Location:loginform.html");
 
 } else {
   $select_user = mysqli_query($conn, "SELECT * FROM `details` WHERE id='$user_id'");
@@ -25,11 +24,18 @@ if (!$user_id) {
   }
 }
 
+$usercart = 0;
+
 if (isset($_POST['addtocartbtn'])) {
 
   $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
   if ($user_id) {
+
+    if (!$fetch_user) {
+      header("Location:sign.html");
+    }
+
     $product_name = $_POST['product_name'];
     $product_image = $_POST['product_image'];
     $product_desc = $_POST['product_desc'];
@@ -40,7 +46,7 @@ if (isset($_POST['addtocartbtn'])) {
     if (mysqli_num_rows($select_cart) > 0) {
 
     } else {
-      if ($user_id != 0) {
+      if ($user_id) {
 
         $product_desc_esc = mysqli_real_escape_string($conn, $product_desc);
 
@@ -50,7 +56,6 @@ if (isset($_POST['addtocartbtn'])) {
         if ($row = mysqli_fetch_assoc($res)) {
           $usercart = $row['user_cart'];
           $cost = $row['cost'];
-          // $cost = (float) $cost;
           $number = preg_replace('/[^0-9.]/', '', $product_price);
           $number = (float) $number;
 

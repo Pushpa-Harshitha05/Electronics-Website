@@ -31,6 +31,11 @@ if (isset($_POST['addtocartbtn'])) {
   $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
   if ($user_id) {
+
+    if (!$fetch_user) {
+      header("Location:sign.html");
+    }
+
     $product_name = $_POST['product_name'];
     $product_image = $_POST['product_image'];
     $product_desc = $_POST['product_desc'];
@@ -41,19 +46,23 @@ if (isset($_POST['addtocartbtn'])) {
     if (mysqli_num_rows($select_cart) > 0) {
 
     } else {
-      if ($user_id != 0) {
+      if ($user_id) {
 
         $product_desc_esc = mysqli_real_escape_string($conn, $product_desc);
 
         mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,image,description) VALUES ('$user_id','$product_name','$product_price','$product_image','$product_desc_esc')") or die('query failed');
 
-        $res = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
+        $res = mysqli_query($conn, "SELECT user_cart,cost FROM `details` WHERE id = '$user_id'");
         if ($row = mysqli_fetch_assoc($res)) {
           $usercart = $row['user_cart'];
+          $cost = $row['cost'];
+          $number = preg_replace('/[^0-9.]/', '', $product_price);
+          $number = (float) $number;
 
           $usercart += 1;
+          $cost += $number;
 
-          mysqli_query($conn, "UPDATE `details` SET user_cart = '$usercart' WHERE id = '$user_id'");
+          mysqli_query($conn, "UPDATE `details` SET user_cart = '$usercart', cost = '$cost' WHERE id = '$user_id'");
 
         }
 
@@ -62,6 +71,7 @@ if (isset($_POST['addtocartbtn'])) {
       }
     }
   } else {
+    echo "<script>console.log('hi')</script>";
     header("Location:loginform.html");
   }
 

@@ -37,7 +37,7 @@ if (isset($_POST['firname'])) {
     } else if ($countpass > 0) {
         echo "<script>alert('password already taken !! USE ANOTHER PASSWORD');window.location.href='sign.html';</script>";
     } else {
-        $sql = "INSERT INTO `details` (`firstname`, `email`, `password`, `user_cart`, ``cost) VALUES ('$firname', '$email', '$pass1',0,0)";
+        $sql = "INSERT INTO `details` (`firstname`, `email`, `password`, `user_cart`, `cost`) VALUES ('$firname', '$email', '$pass1',0,0)";
         if ($con->query($sql) == true) {
             echo "<style>body{background-color:skyblue;}</style>";
             echo "<script type='text/javascript'>";

@@ -119,7 +119,15 @@ if (!$user_id) {
   </div>
 
   <div class="total-cost">
-    <p>Total cost: &#8377 <span id="getcost">0</span></p>
+    <p>Total cost: &#8377 <span id="getcost">
+        <?php
+        $usercost = mysqli_query($conn, "SELECT cost FROM `details` WHERE id = '$user_id'");
+        $rowcost = mysqli_fetch_assoc($usercost);
+        if ($rowcost) {
+          echo $rowcost['cost'];
+        }
+        ?>
+      </span></p>
   </div>
 
 
