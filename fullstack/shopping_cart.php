@@ -86,50 +86,62 @@ if (!$user_id) {
     </nav>
   </div>
 
-  <div class="cart-container">
-    <h2 class="cart-title">Your Shopping Cart</h2>
-    <div class="user-cart">
-      <?php
-      $get_products = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'");
+  <main class="content">
+    <div class="cart-container">
+      <h2 class="cart-title">Your Shopping Cart</h2>
+      <div class="user-cart">
+        <?php
+        $get_products = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'");
 
-      if (mysqli_num_rows($get_products) > 0) {
-        while ($product = mysqli_fetch_assoc($get_products)) {
-          ?>
-          <div class="product-item">
-            <div class="product-image">
-              <img src="<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>">
-            </div>
-            <div class="product-details">
-              <p class="product-name"><?php echo $product['name']; ?></p>
-              <p class="product-desc"><?php echo $product['description'] ?></p>
-              <p class="product-price"><?php echo $product['price'] ?></p>
-              <div class="product-quantity">
-                <!-- <label for="product-quantity">Quantity:</label>
-                <input type="number" name="product-quantity" id="product-quantity" min="1" max="100" value="1"> -->
-                <p>Quantity <span>1</span></p>
+        if (mysqli_num_rows($get_products) > 0) {
+          while ($product = mysqli_fetch_assoc($get_products)) {
+            ?>
+            <div class="product-item">
+              <div class="product-image">
+                <img src="<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>">
+              </div>
+              <div class="product-details">
+                <p class="product-name"><?php echo $product['name']; ?></p>
+                <p class="product-desc"><?php echo $product['description'] ?></p>
+                <p class="product-price"><?php echo $product['price'] ?></p>
+                <div class="product-quantity">
+                  <p>Quantity <span>1</span></p>
+                </div>
               </div>
             </div>
-          </div>
-          <?php
-        }
-      } else {
-        echo "<p class='no-products'>No products found.</p>";
-      }
-      ?>
-    </div>
-  </div>
-
-  <div class="total-cost">
-    <p>Total cost: &#8377 <span id="getcost">
-        <?php
-        $usercost = mysqli_query($conn, "SELECT cost FROM `details` WHERE id = '$user_id'");
-        $rowcost = mysqli_fetch_assoc($usercost);
-        if ($rowcost) {
-          echo $rowcost['cost'];
+            <?php
+          }
+        } else {
+          echo "<p class='no-products'>No products found.</p>";
         }
         ?>
-      </span></p>
-  </div>
+      </div>
+    </div>
+
+    <div class="total-cost">
+      <p>Total Items:
+        <span>
+          <?php
+          $getcount = mysqli_query($conn, "SELECT COUNT(*) AS total FROM `cart` WHERE user_id = '$user_id'");
+          $row1 = mysqli_fetch_assoc($getcount);
+          echo $row1['total'];
+          ?>
+        </span>
+      </p>
+      <p>Subtotal: &#8377 <span id="getcost">
+          <?php
+          $usercost = mysqli_query($conn, "SELECT cost FROM `details` WHERE id = '$user_id'");
+          $rowcost = mysqli_fetch_assoc($usercost);
+          if ($rowcost) {
+            echo $rowcost['cost'];
+          }
+          ?>
+        </span></p>
+      <div class="buydiv">
+        <button type="button" id="buybtn">Proceed to Buy</button>
+      </div>
+    </div>
+  </main>
 
 
   <footer id="footer">
