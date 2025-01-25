@@ -232,12 +232,13 @@ header{
   margin-top: 10px;
 }
 
-.product-quantity label {
-  font-size: 15.5px;
+.product-quantity p {
+  font-size: 15px;
   margin-right: 10px;
 }
 
-.product-quantity input {
+.product-quantity span {
+  display: inline-block;
   width: 60px;
   padding: 5px;
   font-size: 14px;

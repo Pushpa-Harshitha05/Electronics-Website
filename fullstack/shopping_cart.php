@@ -104,8 +104,9 @@ if (!$user_id) {
               <p class="product-desc"><?php echo $product['description'] ?></p>
               <p class="product-price"><?php echo $product['price'] ?></p>
               <div class="product-quantity">
-                <label for="product-quantity">Quantity:</label>
-                <input type="number" name="product-quantity" id="product-quantity" min="1" max="100" value="1">
+                <!-- <label for="product-quantity">Quantity:</label>
+                <input type="number" name="product-quantity" id="product-quantity" min="1" max="100" value="1"> -->
+                <p>Quantity <span>1</span></p>
               </div>
             </div>
           </div>
