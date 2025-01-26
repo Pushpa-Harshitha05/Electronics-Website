@@ -27,16 +27,18 @@ if (!$user_id) {
 ?>
 
 <head>
-  <title>Electronic shopping site</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addresses - Guru Mobile Accessories & Electronics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="myprofile_style.css">
+  <link rel="stylesheet" href="appl_style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
   <header><BR>
     <div class="logo">
       <p><u>Guru Mobile Accessories</u> &amp; <u> Electronics</u></p>
@@ -63,7 +65,7 @@ if (!$user_id) {
             <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
-            <a href="logout.php" id="logoutuser">Logout</a>
+            <a href="logout.php">Logout</a>
           </div>
         </div>
       </div>
@@ -78,43 +80,44 @@ if (!$user_id) {
   </header><br><br><br><br><br><br>
   <div class="start">
     <nav>
-      <a href="Homepage.php" target="_parent"><mark>Home</mark></a>
+      <a href="Homepage.php" target="_parent">Home</a>
       <a href="appl.php" target="_self">Appliances</a>
-      <a href="about.php" target="_self">About</a>
+      <a href="about.php" target="_self"><mark>About</mark></a>
       <a href="#footer" target="_self">Contact us</a>
     </nav>
   </div>
 
-  <main class="main-container">
-    <div class="profilediv orders">
-      <img src="images/profile_imgs/order.png" alt="Your Orders">
-      <div class="data">
-        <span>Your Orders</span>
-        <p>Check your orders here and buy them again</p>
-      </div>
-    </div>
-    <div class="profilediv cart">
-      <img src="images/profile_imgs/cart.png" alt="Your Cart">
-      <div class="data">
-        <span>Your Cart</span>
-        <p>Check the items in the cart and order them.</p>
-      </div>
-    </div>
-    <div class="profilediv addresses">
-      <img src="images/profile_imgs/address.png" alt="Your Addresses">
-      <div class="data">
-        <span>Your Addresses</span>
-        <p>Edit your Address or add new ones for orders.</p>
-      </div>
-    </div>
-    <div class="profilediv login">
-      <img src="images/profile_imgs/login_security.png" alt="Login & Security">
-      <div class="data">
-        <span>Login & Security</span>
-        <p>Edit your profile, name, email and password.</p>
-      </div>
-    </div>
+  <main class="addr-content">
+    <?php
+
+    $getaddress = mysqli_query($conn, "SELECT * FROM `addresses` WHERE user_id = '$user_id'");
+    $result = mysqli_query($conn, "SELECT firstname FROM `details` WHERE id='$user_id'");
+    if ($row = mysqli_fetch_assoc($result)) {
+      $user_name = $row['firstname'];
+    }
+    if (mysqli_num_rows($getaddress) > 0) {
+      while ($addr_row = mysqli_fetch_assoc($getaddress)) {
+        ?>
+
+        <div class="addr-display">
+          <p>Name:
+            <?php echo $user_name; ?>
+          </p>
+          <p>Street: <?php echo $addr_row['street'] ?></p>
+          <p>City: <?php echo $addr_row['city'] ?></p>
+          <p>State: <?php echo $addr_row['state'] ?></p>
+          <p>Country: <?php echo $addr_row['country'] ?></p>
+        </div>
+
+        <?php
+      }
+    } else {
+      echo "<p>No addresses found.</p>";
+    }
+
+    ?>
   </main>
+
 
 
   <footer id="footer">

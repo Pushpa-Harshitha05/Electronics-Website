@@ -38,3 +38,47 @@ document.addEventListener('click', (event) => {
       dropdownMenu.style.display = 'none';
    }
 });
+
+const itembtns = document.querySelectorAll('.items');
+
+itembtns.forEach(button => {
+   button.addEventListener('click', () => {
+      let type = document.getElementById('product-type').innerHTML;
+      if(type == 'mouse'){
+         window.location.href = type+".php";
+      }
+      else{
+         window.location.href = type+"s.php";
+      }
+   });
+});
+
+
+const addressbtn = document.querySelectorAll('.addresses');
+const ordersbtn = document.querySelectorAll('.orders');
+const cartbtn = document.querySelectorAll('.cart');
+const editloginbtn = document.querySelectorAll('.login');
+
+addressbtn.forEach(element => {
+   element.addEventListener('click', () => {
+      window.location.href = "address.php";
+   });
+});
+
+ordersbtn.forEach(element => {
+   element.addEventListener('click', () => {
+      window.location.href = "orders.php";
+   });
+});
+
+cartbtn.forEach(element => {
+   element.addEventListener('click', () => {
+      window.location.href = "shopping_cart.php";
+   });
+});
+
+editloginbtn.forEach(element => {
+   element.addEventListener('click', () => {
+      window.location.href = "editlogin.php";
+   });
+});

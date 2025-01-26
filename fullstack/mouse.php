@@ -210,7 +210,7 @@ if (isset($_POST['addtocartbtn'])) {
       <p>&copy; 2025 Guru Mobile Accessories & Electronics. All Rights Reserved.</p>
     </div>
   </footer>
-  <script src="loadmore_script.js"></>
-</body >
+  <script src="loadmore_script.js"></script>
+</body>
 
-</html >
+</html>

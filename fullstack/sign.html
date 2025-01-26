@@ -28,32 +28,36 @@
     <div class="total">
         <div class="container">
             <h1>SIGN UP</h1>
-            <form action="sign.php" method="post">
+            <form action="sign.php" method="post" id="form">
                 <label for="firname">Name:</label>
                 <input type="text" id="firname" name="firname" placeholder="Enter your first name" required
                     autocomplete="on">
+                <span id="nameError"></span>
 
                 <label for="emai">E-mail:</label>
                 <input type="email" id="emai" name="email" placeholder="Enter your email" required autocomplete="on">
-                <span class="sharemail">We will never share your email with anyone.</span>
+                <p class="sharemail">We will never share your email with anyone.</p>
+                <span id="mailError"></span>
 
                 <label for="pass1" id="password">Password:</label>
                 <div class="passworddiv">
                     <input type="password" id="pass1" name="pass1" placeholder="Enter your password" required>
                     <img src="images/form_imgs/view.png" alt="Show" id="showpass">
                 </div>
+                <span id="pass1Error"></span>
 
                 <label for="pass2">Confirm Password:</label>
                 <div class="passworddiv confirmdiv">
                     <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required>
                     <img src="images/form_imgs/view.png" alt="Show" id="showconpass">
                 </div>
+                <span id="pass2Error"></span>
 
                 <div id="msg"></div>
 
                 <div class="checkboxdiv">
                     <input type="checkbox" id="checkbox" name="checkbox" required>
-                    <span>I Agree to Terms and Conditions</span>
+                    <p id="terms">I Agree to Terms and Conditions</p>
                 </div>
 
                 <input type="submit" value="Submit" id="submit">

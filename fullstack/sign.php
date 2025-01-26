@@ -6,7 +6,7 @@ function call()
     header("Location:loginform.html");
 }
 
-if (isset($_POST['firname'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $server = "localhost";
     $username = "root";
     $password = "";

@@ -1,3 +1,62 @@
+const firname = document.getElementById('firname');
+const email = document.getElementById('emai');
+const passwordcheck1 = document.getElementById('pass1');
+const passwordcheck2 = document.getElementById('pass2');
+const form = document.getElementById('form');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let isvalid = true;
+
+    if(firname.value.trim() === ''){
+        let nameError = document.getElementById('nameError');
+        nameError.textContent = 'name should not be empty';
+        isvalid = false;
+    }
+
+    if(email.value.trim() === ''){
+        let mailError = document.getElementById('mailError');
+        mailError.textContent = 'email should not be empty';
+        isvalid = false;
+    }
+
+    if(passwordcheck1.value.trim() === ''){
+        let pass1Error = document.getElementById('pass1Error');
+        pass1Error.textContent = 'password should not contain space';
+        isvalid = false;
+    }
+
+    if(passwordcheck2.value.trim() === ''){
+        let pass2Error = document.getElementById('pass2Error');
+        pass2Error.textContent = 'password should not contain space';
+        isvalid = false;
+    }
+
+    if(isvalid){
+
+        const formdata = new FormData();
+        formdata.append('firname',firname.value);
+        formdata.append('email',email.value);
+        formdata.append('pass1',passwordcheck1.value);
+        formdata.append('pass2',passwordcheck2.value);
+
+        fetch('sign.php', {
+            method: 'POST',
+            body: formdata
+        })
+        .then((response) => {
+            response.text()
+        })
+        .then((data) => {
+            form.reset();
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("pass1").addEventListener("input", () => {
         let p1 = document.getElementById("pass1").value;

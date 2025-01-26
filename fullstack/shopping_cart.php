@@ -21,6 +21,8 @@ if (!$user_id) {
   }
 }
 
+$get_cartname = [];
+
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +96,9 @@ if (!$user_id) {
         $get_products = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'");
 
         if (mysqli_num_rows($get_products) > 0) {
+          $change = false;
           while ($product = mysqli_fetch_assoc($get_products)) {
+            $get_cartname[] = $product['name'];
             ?>
             <div class="product-item">
               <div class="product-image">
@@ -113,32 +117,61 @@ if (!$user_id) {
           }
         } else {
           echo "<p class='no-products'>No products found.</p>";
+          $change = true;
         }
         ?>
       </div>
     </div>
 
     <div class="total-cost">
-      <p>Total Items:
-        <span>
-          <?php
-          $getcount = mysqli_query($conn, "SELECT COUNT(*) AS total FROM `cart` WHERE user_id = '$user_id'");
-          $row1 = mysqli_fetch_assoc($getcount);
-          echo $row1['total'];
+      <div class="buyoption">
+        <p>Total Items:
+          <span>
+            <?php
+            $getcount = mysqli_query($conn, "SELECT COUNT(*) AS total FROM `cart` WHERE user_id = '$user_id'");
+            $row1 = mysqli_fetch_assoc($getcount);
+            echo $row1['total'];
+            ?>
+          </span>
+        </p>
+        <p>Subtotal: &#8377 <span id="getcost">
+            <?php
+            $usercost = mysqli_query($conn, "SELECT cost FROM `details` WHERE id = '$user_id'");
+            $rowcost = mysqli_fetch_assoc($usercost);
+            if ($rowcost) {
+              echo $rowcost['cost'];
+            }
+            ?>
+          </span></p>
+        <div class="buydiv">
+          <button type="button" id="buybtn">Proceed to Buy</button>
+        </div>
+      </div>
+
+      <div class="otheritems">
+        <p align="start">Pair with your cart</p>
+        <?php
+
+        $placeholders = "'" . implode("','", $get_cartname) . "'";
+        $display_products = mysqli_query($conn, "SELECT * FROM `products` WHERE name NOT IN ($placeholders) LIMIT 3");
+
+        while ($display = mysqli_fetch_assoc($display_products)) {
           ?>
-        </span>
-      </p>
-      <p>Subtotal: &#8377 <span id="getcost">
+          <div class="items">
+            <span id="product-type"><?php echo $display['product_type'] ?></span>
+            <div class="product-image">
+              <img src="<?php echo $display['product_image'] ?>" alt="<?php echo $display['name']; ?>">
+            </div>
+            <div class="product-details">
+              <p class="product-name"><?php echo $display['name']; ?></p>
+              <p class="product-desc"><?php echo $display['description'] ?></p>
+              <p class="product-price"><?php echo $display['price'] ?></p>
+            </div>
+          </div>
           <?php
-          $usercost = mysqli_query($conn, "SELECT cost FROM `details` WHERE id = '$user_id'");
-          $rowcost = mysqli_fetch_assoc($usercost);
-          if ($rowcost) {
-            echo $rowcost['cost'];
-          }
-          ?>
-        </span></p>
-      <div class="buydiv">
-        <button type="button" id="buybtn">Proceed to Buy</button>
+        }
+
+        ?>
       </div>
     </div>
   </main>
@@ -164,6 +197,21 @@ if (!$user_id) {
   </footer>
 
   <script src="homepage_script.js"></script>
+  <script>
+    function changebutton() {
+      let changebtn = document.getElementById('buybtn');
+      if (changebtn) {
+        changebtn.innerHTML = 'Add items to cart';
+        changebtn.addEventListener('click', () => {
+          window.location.href = 'appl.php';
+        });
+      }
+    }
+
+    if (<?php echo $change ?>) {
+      window.onload = changebutton;
+    }
+  </script>
 </body>
 
 </html>
