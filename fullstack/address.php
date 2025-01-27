@@ -34,7 +34,7 @@ if (!$user_id) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="appl_style.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="addrStyle.css">
 </head>
 
 <body>
@@ -88,6 +88,10 @@ if (!$user_id) {
   </div>
 
   <main class="addr-content">
+    <div class="addr-display add-addr">
+      <img src="images/profile_imgs/plus.png" alt="">
+      <p>Add address</p>
+    </div>
     <?php
 
     $getaddress = mysqli_query($conn, "SELECT * FROM `addresses` WHERE user_id = '$user_id'");
@@ -100,19 +104,22 @@ if (!$user_id) {
         ?>
 
         <div class="addr-display">
-          <p>Name:
-            <?php echo $user_name; ?>
-          </p>
+          <p> <?php echo $user_name; ?></p>
+          <p>Phone Number: <?php echo $addr_row['phone_no'] ?></p>
           <p>Street: <?php echo $addr_row['street'] ?></p>
           <p>City: <?php echo $addr_row['city'] ?></p>
           <p>State: <?php echo $addr_row['state'] ?></p>
-          <p>Country: <?php echo $addr_row['country'] ?></p>
+          <div>
+            <button class="editbtn">Edit</button>
+            <buttton class="removebtn">Remove</buttton>
+          </div>
         </div>
+
 
         <?php
       }
     } else {
-      echo "<p>No addresses found.</p>";
+      echo "<p id='no-addr'>No addresses found.</p>";
     }
 
     ?>

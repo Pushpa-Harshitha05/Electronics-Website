@@ -16,6 +16,7 @@ function changeoption(){
 }
 
 
+// homepage.php drop-down menu
 document.addEventListener('DOMContentLoaded', () => {
    const profileImg = document.getElementById('profileimg');
    const dropdownMenu = document.getElementById('dropdownMenu');
@@ -39,6 +40,8 @@ document.addEventListener('click', (event) => {
    }
 });
 
+
+// homepage.php items
 const itembtns = document.querySelectorAll('.items');
 
 itembtns.forEach(button => {
@@ -54,6 +57,7 @@ itembtns.forEach(button => {
 });
 
 
+// myprofile.php
 const addressbtn = document.querySelectorAll('.addresses');
 const ordersbtn = document.querySelectorAll('.orders');
 const cartbtn = document.querySelectorAll('.cart');
@@ -80,5 +84,32 @@ cartbtn.forEach(element => {
 editloginbtn.forEach(element => {
    element.addEventListener('click', () => {
       window.location.href = "editlogin.php";
+   });
+});
+
+
+// address.php add address
+const addaddr = document.querySelectorAll('.add-addr');
+
+addaddr.forEach(addrbtn => {
+   addrbtn.addEventListener('click', () => {
+      window.location.href = "add_address.html";
+   });
+});
+
+
+// address.php edit address
+document.addEventListener('DOMContentLoaded', () => {
+   const editaddr = document.querySelectorAll('.editbtn');
+
+   editaddr.forEach(editbtn => {
+      editbtn.addEventListener('click', (event) => {
+         // console.log(document.querySelectorAll('.addoredit'));
+
+         const parent = event.target.closest('.addr-display');
+         const username = parent.querySelector('p:first-child').innerHTML;
+         const phoneno = parent.querySelector('p:nth-child(2)').innerHTML;
+         console.log(username);
+      });
    });
 });

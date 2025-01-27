@@ -45,10 +45,11 @@ form.addEventListener('submit', (e) => {
             body: formdata
         })
         .then((response) => {
-            response.text()
+            response.text();
         })
         .then((data) => {
             form.reset();
+            window.location.href = "loginform.html";
         })
         .catch((error) => {
             console.error(error);
