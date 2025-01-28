@@ -146,7 +146,7 @@ if (!$user_id) {
     </div>
   </footer>
 
-  <script src="homepage_script.js"></script>
+  <script type="module" src="homepage_script.js"></script>
 </body>
 
 </html>

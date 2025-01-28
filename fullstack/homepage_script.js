@@ -87,7 +87,6 @@ editloginbtn.forEach(element => {
    });
 });
 
-
 // address.php add address
 const addaddr = document.querySelectorAll('.add-addr');
 
@@ -98,18 +97,37 @@ addaddr.forEach(addrbtn => {
 });
 
 
-// address.php edit address
-document.addEventListener('DOMContentLoaded', () => {
-   const editaddr = document.querySelectorAll('.editbtn');
+// edit address function.
 
-   editaddr.forEach(editbtn => {
-      editbtn.addEventListener('click', (event) => {
-         // console.log(document.querySelectorAll('.addoredit'));
+const datasent = [];
 
-         const parent = event.target.closest('.addr-display');
-         const username = parent.querySelector('p:first-child').innerHTML;
-         const phoneno = parent.querySelector('p:nth-child(2)').innerHTML;
-         console.log(username);
+const editbtn = document.querySelectorAll('.editbtn');
+
+editbtn.forEach(editaddr => {
+   editaddr.addEventListener('click', (e) => {
+      const changebtn = e.target.closest('.addr-display').querySelectorAll('p');
+      
+      // Clear previous data before adding new
+      datasent.length = 0;
+
+      datasent.push({ bool:1 });
+
+      changebtn.forEach(cbtn => {
+         datasent.push({ p: cbtn.innerHTML });
       });
+
+      localStorage.setItem("datasent", JSON.stringify(datasent));
+
+      window.location.href = "add_address.html";
    });
+});
+
+
+// delete the address.
+const removebtn = document.querySelectorAll('.removebtn');
+removebtn.forEach(removeaddr => {
+   removeaddr.addEventListener('click', (e) => {
+      console.log( e.target.closest('.addr-display'));
+      e.target.closest('.addr-display').style.display = "none";
+   })
 });
