@@ -67,18 +67,3 @@ addressform.addEventListener('submit', (e) => {
   }
 
 });
-
-
-// Adding the address in form for editing.
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  const data = JSON.parse(localStorage.getItem('datasent'));
-    fullname.value = data[1]['p'];
-    phone.value = data[2]['p'].split(':')[1];
-    address.value = data[3]['p'].split(':')[1];
-    city.value = data[4]['p'].split(':')[1];
-    state.value = data[5]['p'].split(':')[1];
-
-    localStorage.removeItem('datasent');
-});

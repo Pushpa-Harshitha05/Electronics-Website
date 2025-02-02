@@ -97,14 +97,16 @@ addaddr.forEach(addrbtn => {
 });
 
 
-// edit address function.
+// delete the address.
+const fullname = document.getElementById('name');
+const phone = document.getElementById('phone');
+const address = document.getElementById('address');
+const city = document.getElementById('city');
+const state = document.getElementById('state');
 
-const datasent = [];
-
-const editbtn = document.querySelectorAll('.editbtn');
-
-editbtn.forEach(editaddr => {
-   editaddr.addEventListener('click', (e) => {
+const removebtn = document.querySelectorAll('.removebtn');
+removebtn.forEach(removeaddr => {
+   removeaddr.addEventListener('click', (e) => {
       const changebtn = e.target.closest('.addr-display').querySelectorAll('p');
       
       // Clear previous data before adding new
@@ -116,18 +118,8 @@ editbtn.forEach(editaddr => {
          datasent.push({ p: cbtn.innerHTML });
       });
 
-      localStorage.setItem("datasent", JSON.stringify(datasent));
-
-      window.location.href = "add_address.html";
-   });
-});
-
-
-// delete the address.
-const removebtn = document.querySelectorAll('.removebtn');
-removebtn.forEach(removeaddr => {
-   removeaddr.addEventListener('click', (e) => {
-      console.log( e.target.closest('.addr-display'));
-      e.target.closest('.addr-display').style.display = "none";
+      const Formdata = new FormData();
+      Formdata.append('fullname',fullname.value);
+      Formdata.append('phone',phone.value);
    })
 });

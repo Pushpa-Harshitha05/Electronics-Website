@@ -110,7 +110,6 @@ if (!$user_id) {
           <p>City: <?php echo $addr_row['city'] ?></p>
           <p>State: <?php echo $addr_row['state'] ?></p>
           <div>
-            <button class="editbtn">Edit</button>
             <buttton class="removebtn">Remove</buttton>
           </div>
         </div>
