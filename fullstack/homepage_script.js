@@ -98,28 +98,37 @@ addaddr.forEach(addrbtn => {
 
 
 // delete the address.
-const fullname = document.getElementById('name');
-const phone = document.getElementById('phone');
-const address = document.getElementById('address');
-const city = document.getElementById('city');
-const state = document.getElementById('state');
-
 const removebtn = document.querySelectorAll('.removebtn');
+
 removebtn.forEach(removeaddr => {
    removeaddr.addEventListener('click', (e) => {
-      const changebtn = e.target.closest('.addr-display').querySelectorAll('p');
-      
-      // Clear previous data before adding new
-      datasent.length = 0;
 
-      datasent.push({ bool:1 });
+      const changebtn = e.target.closest('.addr-display').querySelectorAll('p');
+      let ind = 0;
+      let data = ['phone','address','city','state'];
+
+      const formData = new FormData();
+
+      formData.append('type','remove');
 
       changebtn.forEach(cbtn => {
-         datasent.push({ p: cbtn.innerHTML });
+         if(cbtn.innerHTML.includes(':')){
+            formData.append(data[ind],cbtn.innerHTML.split(": ")[1]);
+            ind += 1;
+         }
+         else{
+            formData.append('fullname',cbtn.innerHTML);
+         }
       });
-
-      const Formdata = new FormData();
-      Formdata.append('fullname',fullname.value);
-      Formdata.append('phone',phone.value);
+      
+      fetch('add_address_data.php', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.text())
+        .then((data) => {
+         window.location.href = "address.php";
+        })
+        .catch(error => console.error('Error:', error));
    })
 });

@@ -104,7 +104,7 @@ if (!$user_id) {
         ?>
 
         <div class="addr-display">
-          <p> <?php echo $user_name; ?></p>
+          <p> <?php echo $addr_row['address_name']; ?></p>
           <p>Phone Number: <?php echo $addr_row['phone_no'] ?></p>
           <p>Street: <?php echo $addr_row['street'] ?></p>
           <p>City: <?php echo $addr_row['city'] ?></p>

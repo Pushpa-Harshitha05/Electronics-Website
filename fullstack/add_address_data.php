@@ -32,8 +32,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $checkaddress = mysqli_query($conn, "SELECT * FROM `addresses` WHERE address_name = '$fullname' AND phone_no = '$phone' AND street = '$address' AND city = '$city' AND state = '$state'");
 
   if (mysqli_num_rows($checkaddress) > 0) {
-    echo "<script>alert('Address Already exists.')</script>";
-    exit();
+
+    if (array_key_exists('type', $_POST)) {
+      $deleteaddr = mysqli_query($conn, "DELETE FROM `addresses` WHERE address_name = '$fullname' AND phone_no = '$phone' AND street = '$address' AND city = '$city' AND state = '$state'");
+    }
+
   } else {
     $insertaddress = mysqli_query($conn, "INSERT INTO `addresses` (user_id,address_name,phone_no,street,city,state) VALUES ('$user_id','$fullname','$phone','$address','$city','$state')");
 
