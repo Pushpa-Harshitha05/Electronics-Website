@@ -60,6 +60,8 @@ if (!$user_id) {
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
           <div class="dropdown-menu" id="dropdownMenu">
+            <a href="myprofile.php"><?php echo $fetch_user['firstname'] ?></a>
+            <hr>
             <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
@@ -85,6 +87,8 @@ if (!$user_id) {
     </nav>
   </div>
 
+  <h1><small>Hello,</small> <?php echo $fetch_user['firstname'] ?></h1>
+
   <main class="main-container">
     <div class="profilediv orders">
       <img src="images/profile_imgs/order.png" alt="Your Orders">
@@ -104,7 +108,7 @@ if (!$user_id) {
       <img src="images/profile_imgs/address.png" alt="Your Addresses">
       <div class="data">
         <span>Your Addresses</span>
-        <p>Edit your Address or add new ones for orders.</p>
+        <p>Remove your Address or add new ones for orders.</p>
       </div>
     </div>
     <div class="profilediv login">

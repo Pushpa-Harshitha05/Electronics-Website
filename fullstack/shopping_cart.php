@@ -1,7 +1,11 @@
+<!DOCTYPE html>
+
 <?php
 
 $conn = mysqli_connect('localhost', 'root', '', 'signup');
 session_start();
+
+$change = true;
 
 $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
@@ -25,7 +29,7 @@ $get_cartname = [];
 
 ?>
 
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -63,6 +67,8 @@ $get_cartname = [];
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
           <div class="dropdown-menu" id="dropdownMenu">
+            <a href="myprofile.php"><?php echo $fetch_user['firstname'] ?></a>
+            <hr>
             <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
@@ -208,9 +214,14 @@ $get_cartname = [];
       }
     }
 
-    if (<?php echo $change ?>) {
+    if (<?php echo json_encode($change) ?>) {
       window.onload = changebutton;
     }
+
+    document.getElementById('buybtn').addEventListener('click', () => {
+      window.location.href = 'orders.php';
+    })
+
   </script>
 </body>
 

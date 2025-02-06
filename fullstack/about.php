@@ -61,6 +61,8 @@ if (!$user_id) {
             <div class="profile-container">
                <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
                <div class="dropdown-menu" id="dropdownMenu">
+                  <a href="myprofile.php"><?php echo $fetch_user['firstname'] ?></a>
+                  <hr>
                   <a href="myprofile.php">My Profile</a>
                   <a href="#">Orders</a>
                   <a href="#">Settings</a>

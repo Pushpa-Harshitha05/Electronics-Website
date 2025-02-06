@@ -62,6 +62,8 @@ if (!$user_id) {
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
           <div class="dropdown-menu" id="dropdownMenu">
+            <a href="myprofile.php"><?php echo $fetch_user['firstname'] ?></a>
+            <hr>
             <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
@@ -80,9 +82,9 @@ if (!$user_id) {
   </header><br><br><br><br><br><br>
   <div class="start">
     <nav>
-      <a href="Homepage.php" target="_parent">Home</a>
+      <a href="Homepage.php" target="_parent"><mark>Home</mark></a>
       <a href="appl.php" target="_self">Appliances</a>
-      <a href="about.php" target="_self"><mark>About</mark></a>
+      <a href="about.php" target="_self">About</a>
       <a href="#footer" target="_self">Contact us</a>
     </nav>
   </div>
