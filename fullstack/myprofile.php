@@ -80,7 +80,7 @@ if (!$user_id) {
   </header><br><br><br><br><br><br>
   <div class="start">
     <nav>
-      <a href="Homepage.php" target="_parent"><mark>Home</mark></a>
+      <a href="Homepage.php" target="_parent">Home</a>
       <a href="appl.php" target="_self">Appliances</a>
       <a href="about.php" target="_self">About</a>
       <a href="#footer" target="_self">Contact us</a>
