@@ -30,7 +30,16 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     if ($count == 1) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['user_id'] = $row['id'];
-        header("Location:Homepage.php");
+    
+        if (isset($_SESSION['redirect_after_login'])) {
+            $redirect_url = $_SESSION['redirect_after_login'];
+            unset($_SESSION['redirect_after_login']);
+            header("Location: $redirect_url");
+        } else {
+            header("Location: Homepage.php"); // default fallback
+        }
+        exit();
+
     } elseif (((mysqli_num_rows(mysqli_query($con, $checkemail))) == 0) and ((mysqli_num_rows(mysqli_query($con, $checkpass))) == 0)) {
         echo "<script>alert('EMAIL DOES NOT EXIST!! Please Create Account');</script>";
         echo "<script>window.location.href='sign.html';</script>";

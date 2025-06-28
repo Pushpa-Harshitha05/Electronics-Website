@@ -67,11 +67,15 @@ if (isset($_POST['addtocartbtn'])) {
 
         }
 
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
+
       } else {
         header("Location:loginform.html");
       }
     }
   } else {
+    $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
     header("Location:loginform.html");
   }
 

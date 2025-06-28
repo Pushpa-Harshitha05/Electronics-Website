@@ -35,6 +35,7 @@ if ($user_id != null) {
 
     }
 
+    echo "<script>alert('successfully updated your details')</script>";
     echo "<script>window.location.href = 'editlogin.php'</script>";
     exit();
 

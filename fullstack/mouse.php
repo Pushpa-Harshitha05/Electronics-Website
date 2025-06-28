@@ -64,12 +64,15 @@ if (isset($_POST['addtocartbtn'])) {
           mysqli_query($conn, "UPDATE `details` SET user_cart = '$usercart', cost = '$cost' WHERE id = '$user_id'");
 
         }
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
 
       } else {
         header("Location:about.html");
       }
     }
   } else {
+    $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
     header("Location:loginform.html");
   }
 

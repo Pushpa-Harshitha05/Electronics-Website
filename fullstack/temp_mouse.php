@@ -24,58 +24,23 @@ if (!$user_id) {
   }
 }
 
-$usercart = 0;
-
 if (isset($_POST['addtocartbtn'])) {
 
-  $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+  $product_name = $_POST['product_name'];
+  $product_image = $_POST['product_image'];
+  $product_desc = $_POST['product_desc'];
+  $product_price = $_POST['product_price'];
 
-  if ($user_id) {
+  $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' and user_id = '$user_id'") or die('query failed');
 
-    if (!$fetch_user) {
-      header("Location:sign.html");
-    }
+  if (mysqli_num_rows($select_cart) > 0) {
 
-    $product_name = $_POST['product_name'];
-    $product_image = $_POST['product_image'];
-    $product_desc = $_POST['product_desc'];
-    $product_price = $_POST['product_price'];
-
-    $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE name = '$product_name' and user_id = '$user_id'") or die('query failed');
-
-    if (mysqli_num_rows($select_cart) > 0) {
-
-    } else {
-      if ($user_id) {
-
-        $product_desc_esc = mysqli_real_escape_string($conn, $product_desc);
-
-        mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,image,description) VALUES ('$user_id','$product_name','$product_price','$product_image','$product_desc_esc')") or die('query failed');
-
-        $res = mysqli_query($conn, "SELECT user_cart,cost FROM `details` WHERE id = '$user_id'");
-        if ($row = mysqli_fetch_assoc($res)) {
-          $usercart = $row['user_cart'];
-          $cost = $row['cost'];
-          $number = preg_replace('/[^0-9.]/', '', $product_price);
-          $number = (float) $number;
-
-          $usercart += 1;
-          $cost += $number;
-
-          mysqli_query($conn, "UPDATE `details` SET user_cart = '$usercart', cost = '$cost' WHERE id = '$user_id'");
-
-        }
-
-      header("Location: " . $_SERVER['PHP_SELF']);
-        exit();
-
-      } else {
-        header("Location:loginform.html");
-      }
-    }
   } else {
-    $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
-    header("Location:loginform.html");
+    if ($user_id != 0) {
+      mysqli_query($conn, "INSERT INTO `cart`(user_id,name,price,image,description) VALUES ('$user_id','$product_name','$product_price','$product_image','$product_desc')") or die('query failed');
+    } else {
+      header("Location:loginform.html");
+    }
   }
 
 }
@@ -83,7 +48,7 @@ if (isset($_POST['addtocartbtn'])) {
 ?>
 
 <head>
-  <title>SPEAKER ELECTRONIC APPLIANCES</title>
+  <title>MOUSE ELECTRONIC APPLIANCES</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,24 +65,12 @@ if (isset($_POST['addtocartbtn'])) {
     <?php if ($user_id && $fetch_user): ?>
       <div class="profile">
         <div class="cartitems">
-          <a href="shopping_cart.php" class="cartlink">
-            <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
-            <span id="cartcount">
-              <?php
-              $cartres = mysqli_query($conn, "SELECT user_cart FROM `details` WHERE id = '$user_id'");
-              $rowcount = mysqli_fetch_assoc($cartres);
-              if ($rowcount) {
-                echo $rowcount['user_cart'];
-              }
-              ?>
-            </span>
-          </a>
+          <img src="images/homepage_imgs/cart.png" alt="cart" id="cart">
+          <span id="cartcount">0</span>
         </div>
         <div class="profile-container">
           <img src="images/homepage_imgs/profile_img.png" alt="profile" id="profileimg">
           <div class="dropdown-menu" id="dropdownMenu">
-            <a href="myprofile.php"><?php echo $fetch_user['firstname'] ?></a>
-            <hr>
             <a href="myprofile.php">My Profile</a>
             <a href="#">Orders</a>
             <a href="#">Settings</a>
@@ -143,13 +96,13 @@ if (isset($_POST['addtocartbtn'])) {
     </nav>
   </div>
   <section>
-    <h1>SPEAKERS</h1>
+    <h1>Mouse Appliances</h1>
   </section>
 
   <?php
 
   $pcount = 1;
-  $select_product = mysqli_query($conn, 'SELECT * FROM `products` WHERE product_type = "speaker"') or die('query failed');
+  $select_product = mysqli_query($conn, 'SELECT * FROM `products` WHERE product_type = "mouse"') or die('query failed');
 
   if (mysqli_num_rows($select_product) > 0) {
     while ($fetch_product = mysqli_fetch_assoc($select_product)) {
